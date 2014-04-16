@@ -1,0 +1,50 @@
+CS 473
+Fundamental Algorithms
+Credit:0 TO 4 hours.
+Description: Fundamental techniques for algorithm design and analysis, including recursion, dynamic programming, randomization, dynamic data structures, fundamental graph algorithms, and NP-completeness. Intended for undergraduates in Computer Science and graduate students in other departments.
+CRN: 48274
+Type: Discussion/Recitation
+Section: AD1
+Time: 05:00 PM - 05:50 PM
+Day: T
+Location: 1109 Siebel Center for Comp Sci
+Instructor: Chekuri, C
+Availability: CrossListOpen
+Part of Term: 1
+CRN: 48275
+Type: Discussion/Recitation
+Section: AD2
+Time: 06:00 PM - 06:50 PM
+Day: T
+Location: 1109 Siebel Center for Comp Sci
+Instructor: Chekuri, C
+Availability: CrossListOpen
+Part of Term: 1
+CRN: 48276
+Type: Discussion/Recitation
+Section: AD3
+Time: 04:00 PM - 04:50 PM
+Day: W
+Location: 1109 Siebel Center for Comp Sci
+Instructor: Chekuri, C
+Availability: CrossListOpen
+Part of Term: 1
+CRN: 48277
+Type: Discussion/Recitation
+Section: AD4
+Time: 05:00 PM - 05:50 PM
+Day: W
+Location: 1109 Siebel Center for Comp Sci
+Instructor: Chekuri, C
+Availability: CrossListOpen
+Part of Term: 1
+CRN: 31457
+Type: Lecture
+Section: AL1
+Time: 12:30 PM - 01:45 PM
+Day: TR
+Location: 1320 Digital Computer Laboratory
+Instructor: Chekuri, C
+Availability: CrossListOpen
+Credit: 3 hours
+Part of Term: 1

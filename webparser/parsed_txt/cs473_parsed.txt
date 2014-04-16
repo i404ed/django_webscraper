@@ -1,0 +1,47 @@
+CS 473
+Fundamental Algorithms
+Credit:
+0 TO 4 hours.
+Fundamental techniques for algorithm design and analysis, including recursion, dynamic programming, randomization, dynamic data structures, fundamental graph algorithms, and NP-completeness. Intended for undergraduates in Computer Science and graduate students in other departments. Same as CSE 414 and MATH 473. 3 undergraduate hours. 3 or 4 graduate hours. Prerequisite: CS 373.
+51491
+Discussion/Recitation
+AD1
+T
+04:00 PM - 04:50 PM
+1214 Siebel Center for Comp Sci
+51492
+Discussion/Recitation
+AD2
+T
+05:00 PM - 05:50 PM
+1214 Siebel Center for Comp Sci
+51493
+Discussion/Recitation
+AD3
+W
+02:00 PM - 02:50 PM
+1214 Siebel Center for Comp Sci
+51494
+Discussion/Recitation
+AD4
+W
+03:00 PM - 03:50 PM
+1214 Siebel Center for Comp Sci
+56046
+Discussion/Recitation
+AD5
+W
+05:00 PM - 05:50 PM
+1214 Siebel Center for Comp Sci
+43365
+Lecture-Discussion
+AE1
+TR
+11:00 AM - 12:15 PM
+1404 Siebel Center for Comp Sci
+35859
+Lecture-Discussion
+AE2
+TR
+11:00 AM - 12:15 PM
+1404 Siebel Center for Comp Sci

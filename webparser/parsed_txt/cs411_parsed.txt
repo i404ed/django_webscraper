@@ -1,0 +1,34 @@
+CS 411
+Database Systems
+Credit:
+3 OR 4 hours.
+Examination of the logical organization of databases: the entity-relationship model; the hierarchical, network, and relational data models and their languages. Functional dependencies and normal forms. Design, implementation, and optimization of query languages; security and integrity; concurrency control, and distributed database systems.
+3 undergraduate hours. 3 or 4 graduate hours. Prerequisite: CS 225.
+CRN: 30109
+Type: Lecture-Discussion
+Section: Q3
+Time: 03:30 PM - 04:45 PM
+Day: TR
+Location: 1320 Digital Computer Laboratory
+Instructor: Sinha, S
+Availability:
+CrossListOpen
+Credit:
+3 hours
+Part of Term:
+1
+CRN: 40086
+Type: Lecture-Discussion
+Section: Q4
+Time: 03:30 PM - 04:45 PM
+Day: TR
+Location: 1320 Digital Computer Laboratory
+Instructor: Sinha, S
+Availability:
+CrossListOpen
+Credit:
+4 hours
+Part of Term:
+1
+Restriction(s):
+Restricted to Graduate - Urbana-Champaign.

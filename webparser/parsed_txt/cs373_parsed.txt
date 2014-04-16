@@ -1,0 +1,101 @@
+CS 373
+Theory of Computation
+Credit:
+3 hours.
+Finite automata and regular languages; pushdown automata and context-free languages; Turing machines and recursively enumerable sets; computability and the halting problem; undecidable problems.
+Prerequisite: CS 173 or MATH 213; CS 225.
+Students must register for one lecture and one discussion section.
+This course satisfies the General Education Criteria in
+Spring 2014
+UIUC: Quant Reasoning II course
+CRN: 50145
+Type: Discussion/Recitation
+Section: AD1
+Time: 11:00 AM - 11:50 AM
+Day: W
+Location: 1111 Siebel Center for Comp Sci
+Instructor: Meseguer, J
+Availability:
+Open
+Degree Notes:
+Quant Reasoning II course.
+Part of Term:
+1
+CRN: 50146
+Type: Discussion/Recitation
+Section: AD2
+Time: 12:00 PM - 12:50 PM
+Day: W
+Location: 1214 Siebel Center for Comp Sci
+Instructor: Meseguer, J
+Availability:
+Open
+Degree Notes:
+Quant Reasoning II course.
+Part of Term:
+1
+CRN: 50147
+Type: Discussion/Recitation
+Section: AD3
+Time: 01:00 PM - 01:50 PM
+Day: W
+Location: 1111 Siebel Center for Comp Sci
+Instructor: Meseguer, J
+Availability:
+Open
+Degree Notes:
+Quant Reasoning II course.
+Part of Term:
+1
+CRN: 50148
+Type: Discussion/Recitation
+Section: AD4
+Time: 02:00 PM - 02:50 PM
+Day: W
+Location: 1111 Siebel Center for Comp Sci
+Instructor: Meseguer, J
+Availability:
+Open
+Degree Notes:
+Quant Reasoning II course.
+Part of Term:
+1
+CRN: 52356
+Type: Discussion/Recitation
+Section: AD5
+Time: 03:00 PM - 03:50 PM
+Day: W
+Location: 1111 Siebel Center for Comp Sci
+Instructor: Meseguer, J
+Availability:
+Open
+Degree Notes:
+Quant Reasoning II course.
+Part of Term:
+1
+CRN: 59427
+Type: Discussion/Recitation
+Section: AD6
+Time: 04:00 PM - 04:50 PM
+Day: W
+Location: 1111 Siebel Center for Comp Sci
+Instructor: Meseguer, J
+Availability:
+Open
+Degree Notes:
+Quant Reasoning II course.
+Part of Term:
+1
+CRN: 50142
+Type: Lecture
+Section: AL1
+Time: 09:30 AM - 10:45 AM
+Day: WF
+Location: 1404 Siebel Center for Comp Sci
+Instructor: Meseguer, J
+Availability:
+Open
+Degree Notes:
+Quant Reasoning II course.
+Part of Term:
+1

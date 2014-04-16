@@ -1,0 +1,185 @@
+CS 125
+Intro to Computer Science
+Credit:
+4 hours.
+Basic concepts in computing and fundamental techniques for solving computational problems. Intended as a first course for computer science majors and others with a deep interest in computing. Prerequisite: Three years of high school mathematics or MATH 012.
+This course satisfies the General Education Criteria in
+Fall 2014
+UIUC: Quant Reasoning I course
+CRN: 35876
+Type: Lecture
+Section: AL1
+Time: 02:00 PM - 02:50 PM
+Day: MWF
+Location: 1320 Digital Computer Laboratory
+Instructor: Angrave, L
+Availability:
+Open (Restricted)
+Degree Notes:
+Quant Reasoning I course.
+Part of Term:
+1
+Section Info:
+Restrictions will be removed on the first day of class -- 8/26/13
+Restriction(s):
+Restricted to Undergrad - Urbana-Champaign.
+CRN: 35878
+Type: Lecture
+Section: AL2
+Time: 03:00 PM - 03:50 PM
+Day: MWF
+Location: 1320 Digital Computer Laboratory
+Instructor: Angrave, L
+Availability:
+Open (Restricted)
+Degree Notes:
+Quant Reasoning I course.
+Part of Term:
+1
+Section Info:
+Restrictions will be removed on the first day of class -- 8/26/13
+Restriction(s):
+Restricted to Undergrad - Urbana-Champaign.
+CRN: 35881
+Type: Laboratory-Discussion
+Section: AYA
+Time: 09:00 AM - 10:50 AM
+Day: T
+Location: 0224 Siebel Center for Comp Sci
+Instructor: Angrave, L
+Availability:
+Open
+Degree Notes:
+Quant Reasoning I course.
+Part of Term:
+1
+CRN: 35885
+Type: Laboratory-Discussion
+Section: AYB
+Time: 11:00 AM - 12:50 PM
+Day: T
+Location: 0224 Siebel Center for Comp Sci
+Instructor: Angrave, L
+Availability:
+Open
+Degree Notes:
+Quant Reasoning I course.
+Part of Term:
+1
+CRN: 35888
+Type: Laboratory-Discussion
+Section: AYC
+Time: 01:00 PM - 02:50 PM
+Day: T
+Location: 0224 Siebel Center for Comp Sci
+Instructor: Angrave, L
+Availability:
+Open
+Degree Notes:
+Quant Reasoning I course.
+Part of Term:
+1
+CRN: 35891
+Type: Laboratory-Discussion
+Section: AYD
+Time: 03:00 PM - 04:50 PM
+Day: T
+Location: 0224 Siebel Center for Comp Sci
+Instructor: Angrave, L
+Availability:
+Open
+Degree Notes:
+Quant Reasoning I course.
+Part of Term:
+1
+CRN: 35898
+Type: Laboratory-Discussion
+Section: AYE
+Time: 05:00 PM - 06:50 PM
+Day: T
+Location: 0224 Siebel Center for Comp Sci
+Instructor: Angrave, L
+Availability:
+Open
+Degree Notes:
+Quant Reasoning I course.
+Part of Term:
+1
+CRN: 35901
+Type: Laboratory-Discussion
+Section: AYF
+Time: 07:00 PM - 08:50 PM
+Day: T
+Location: 0224 Siebel Center for Comp Sci
+Instructor: Angrave, L
+Availability:
+Open
+Degree Notes:
+Quant Reasoning I course.
+Part of Term:
+1
+CRN: 35904
+Type: Laboratory-Discussion
+Section: AYG
+Time: 09:00 AM - 10:50 AM
+Day: W
+Location: 0224 Siebel Center for Comp Sci
+Instructor: Angrave, L
+Availability:
+Open
+Degree Notes:
+Quant Reasoning I course.
+Part of Term:
+1
+CRN: 35906
+Type: Laboratory-Discussion
+Section: AYH
+Time: 11:00 AM - 12:50 PM
+Day: W
+Location: 0224 Siebel Center for Comp Sci
+Instructor: Angrave, L
+Availability:
+Open
+Degree Notes:
+Quant Reasoning I course.
+Part of Term:
+1
+CRN: 35908
+Type: Laboratory-Discussion
+Section: AYI
+Time: 01:00 PM - 02:50 PM
+Day: W
+Location: 0224 Siebel Center for Comp Sci
+Instructor: Angrave, L
+Availability:
+Open
+Degree Notes:
+Quant Reasoning I course.
+Part of Term:
+1
+CRN: 35911
+Type: Laboratory-Discussion
+Section: AYJ
+Time: 03:00 PM - 04:50 PM
+Day: W
+Location: 0224 Siebel Center for Comp Sci
+Instructor: Angrave, L
+Availability:
+Open
+Degree Notes:
+Quant Reasoning I course.
+Part of Term:
+1
+CRN: 35914
+Type: Laboratory-Discussion
+Section: AYK
+Time: 05:00 PM - 06:50 PM
+Day: W
+Location: 0224 Siebel Center for Comp Sci
+Instructor: Angrave, L
+Availability:
+Open
+Degree Notes:
+Quant Reasoning I course.
+Part of Term:
+1

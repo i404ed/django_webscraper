@@ -1,0 +1,10 @@
+You'll need the python extension ,BeautifulSoup 4.1.2, or higher
+as it supports searching html's class tags
+
+1. In main.py, provide the call to SoupParser.Parser()
+with the source (.html or URL), the type (0 for html, 1 for URL), and file prefix(for saved output)
+2. Then just run python ./main.py
+    the script will generate a pretty printed version of the html
+    with suffix _pretty to /pretty_html
+    it will also save output to a text file with suffix _parsed.txt to
+    /parsed_txt
