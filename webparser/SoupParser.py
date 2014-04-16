@@ -5,10 +5,11 @@ from itertools import izip
 import os
 import errno
 import urllib2
-import DataStruct
-import models
 
 from bs4 import BeautifulSoup
+
+import DataStruct
+import models
 
 BASE_DIR = os.path.dirname(__file__)
 
@@ -25,18 +26,18 @@ def mkdir_p(path):
 
 # noinspection PyBroadException
 class Parser:
-    def __init__(self, src, type, des):
-        if type == 0:
+    def __init__(self, src, mode, des):
+        if mode == 0:
             f = open(src, 'r')
             self.soup = BeautifulSoup(f.read())
             f.close()
-        elif type == 1:
+        elif mode == 1:
             data = urllib2.urlopen(src).read()
             # r = requests.get(src)
             # data = r.text
             self.soup = BeautifulSoup(data)
         else:
-            print "type has to be a .html file or a URL"
+            print "mode has to be a .html file or a URL"
 
         self.print_pretty(des)
         self.get_course(des)
@@ -46,7 +47,7 @@ class Parser:
         pretty prints the html as (name)_pretty.html
         :param file_name: name
         """
-        path = os.path.join(BASE_DIR, 'pretty_html')
+        path = os.path.join(BASE_DIR, '../test/pretty_html')
         mkdir_p(path)
         orig_stdout = sys.stdout
         new_file = os.path.join(path, file_name + "_pretty.html")
@@ -64,7 +65,7 @@ class Parser:
         prases the html and save to file as (name)_parsed.txt
         :param file_name: name
         """
-        path = os.path.join(BASE_DIR, 'parsed_txt')
+        path = os.path.join(BASE_DIR, '../test/parsed_txt')
         mkdir_p(path)
         orig_stdout = sys.stdout
         new_file = os.path.join(path, file_name + "_parsed.txt")
@@ -181,14 +182,18 @@ class Parser:
             # print sameas_start, sameas_end, find_sameas
 
 
+            # all_entries = models.Course.objects.all()
             course_obj = DataStruct.Course(title_text, course_text, description_text)
-            course_model, course_bool = models.Course.objects.get_or_create(
-                CourseID=title_text, CourseName=course_text, Description=description_text)
+            # course_model, course_bool = models.Course.objects.get_or_create(
+            #     CourseID=title_text, CourseName=course_text, Description=description_text)
 
-            print title_text
-            print course_text
+            print course_obj.title
+            print course_obj.course
+            # print title_text
+            # print course_text
             print credit_hr_text
-            print description_text
+            print course_obj.description
+            # print description_text
             print find_prereq
             print find_sameas
 
@@ -275,17 +280,25 @@ class Parser:
 
                 section_obj = DataStruct.Section(crn_text, type_text, section_text, time_text, day_text, location_text,
                                                  instructor_text, detail_text)
-                section_model, section_bool = models.Slots.objects.get_or_create(
-                    CRN=crn_text, Type=type_text, Time=time_text, Section=section_text,
-                    Days=day_text, Location=location_text, Professor=instructor_text, CourseID=title_text)
+                # section_model, section_bool = models.Slots.objects.get_or_create(
+                #     CRN=crn_text, Type=type_text, Time=time_text, Section=section_text,
+                #     Days=day_text, Location=location_text, Professor=instructor_text, CourseID=title_text)
 
-                print "CRN: " + crn_text
-                print "Type: " + type_text
-                print "Section: " + section_text
-                print "Time: " + time_text
-                print "Day: " + day_text
-                print "Location: " + location_text
-                print "Instructor: " + instructor_text
+
+                print "CRN: " + section_obj.crn
+                print "Type: " + section_obj.type
+                print "Section: " + section_obj.section
+                print "Time: " + section_obj.time
+                print "Day: " + section_obj.day
+                print "Location: " + section_obj.location
+                print "Instructor: " + section_obj.instructor
+                # print "CRN: " + crn_text
+                # print "Type: " + type_text
+                # print "Section: " + section_text
+                # print "Time: " + time_text
+                # print "Day: " + day_text
+                # print "Location: " + location_text
+                # print "Instructor: " + instructor_text
                 print detail_text
 
         except:

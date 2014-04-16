@@ -1,10 +1,8 @@
 #!/usr/bin/python
-import sys
-import requests
-
-
 __author__ = 'hcao7'
 import SoupParser
+import sys
+
 
 
 def main():
