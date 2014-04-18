@@ -4,4 +4,4 @@ dont forget to ./manage.py syncdb and ./manage.py migrate
 local database
 user: ext
 email:
-password: qwertywasd
+password: wasd or qwertywasd

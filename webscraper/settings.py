@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'webparser',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,6 +57,14 @@ WSGI_APPLICATION = 'webscraper.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
+
+# var
+# connection = mysql.createConnection({
+#     host: 'engr-cpanel-mysql.engr.illinois.edu',
+#     database: 'cs411horse_iCouSchelper',
+#     user: 'cs411horse_123',
+#     password: 'rbtGXxHW$TiR'
+# });
 
 DATABASES = {
     'default': {

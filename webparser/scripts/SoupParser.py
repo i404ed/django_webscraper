@@ -1,3 +1,6 @@
+from webparser import models
+from webparser.scripts import DataStruct
+
 __author__ = 'hcao7'
 import re
 import sys
@@ -7,9 +10,6 @@ import errno
 import urllib2
 
 from bs4 import BeautifulSoup
-
-import DataStruct
-import models
 
 BASE_DIR = os.path.dirname(__file__)
 
@@ -29,17 +29,17 @@ class Parser:
     def __init__(self, src, mode, des):
         if mode == 0:
             f = open(src, 'r')
-            self.soup = BeautifulSoup(f.read())
+            self.soup = BeautifulSoup(f.read(), "lxml")
             f.close()
         elif mode == 1:
             data = urllib2.urlopen(src).read()
             # r = requests.get(src)
             # data = r.text
-            self.soup = BeautifulSoup(data)
+            self.soup = BeautifulSoup(data, "lxml")
         else:
             print "mode has to be a .html file or a URL"
 
-        self.print_pretty(des)
+        # self.print_pretty(des)
         self.get_course(des)
 
     def print_pretty(self, file_name):
@@ -47,7 +47,7 @@ class Parser:
         pretty prints the html as (name)_pretty.html
         :param file_name: name
         """
-        path = os.path.join(BASE_DIR, '../test/pretty_html')
+        path = os.path.join(BASE_DIR, 'pretty_html')
         mkdir_p(path)
         orig_stdout = sys.stdout
         new_file = os.path.join(path, file_name + "_pretty.html")
@@ -65,12 +65,12 @@ class Parser:
         prases the html and save to file as (name)_parsed.txt
         :param file_name: name
         """
-        path = os.path.join(BASE_DIR, '../test/parsed_txt')
-        mkdir_p(path)
-        orig_stdout = sys.stdout
-        new_file = os.path.join(path, file_name + "_parsed.txt")
-        f = open(new_file, 'w')
-        sys.stdout = f
+        # path = os.path.join(BASE_DIR, 'parsed_txt')
+        # mkdir_p(path)
+        # orig_stdout = sys.stdout
+        # new_file = os.path.join(path, file_name + "_parsed.txt")
+        # f = open(new_file, 'w')
+        # sys.stdout = f
 
         root = self.soup.find("div", class_="portlet-content-inner")
 
@@ -92,7 +92,6 @@ class Parser:
                 course_text = "Course Name Not Found"
                 # print course_text
                 pass
-
             # hours, description, prereqs, same as
             try:
                 subject_infos = root.find_all("div", id=re.compile("^subject-info"))
@@ -182,22 +181,76 @@ class Parser:
             # print sameas_start, sameas_end, find_sameas
 
 
-            # all_entries = models.Course.objects.all()
+            # print 0
             course_obj = DataStruct.Course(title_text, course_text, description_text)
-            # course_model, course_bool = models.Course.objects.get_or_create(
-            #     CourseID=title_text, CourseName=course_text, Description=description_text)
+            # gets all Course2Group tuples
+            all_entries = models.Course2Group.objects.all()
+            # print all_entries
+            # print 0.1, len(all_entries)
+            # finds current course's GroupID if course is in the list
+            # might as well calculate the max too
+            currID = 0
+            maxID = 0
+            for tuples in all_entries:
+                if tuples.CourseID == title_text:
+                    currID = tuples.GroupID
+                if tuples.GroupID > maxID:
+                    maxID = tuples.GroupID
+            # print 0.2
+            # course is not in the list. max +1 for unique ID
+            if currID == 0:
+                maxID += 1
+            else:
+                # course is in the list, make maxID = curr for create/update
+                # either way, maxID will be the ID of the current course
+                maxID = currID
+            # print 0.3, title_text, maxID
+            # make/update the tuple and save
+            course2id_model, course2id_bool = models.Course2Group.objects.get_or_create(
+                CourseID=title_text, GroupID=maxID)
+            course2id_model.save()
+            # print 0.4, title_text, ",", course_text, ",", description_text
+            # make/update the tuple and save
+            course_model, course_bool = models.Course.objects.get_or_create(
+                CourseID=title_text, CourseName=course_text, Description=description_text)
+            course_model.save()
+            # print 1
+            # print course_obj.title
+            # print course_obj.course
+            # # print title_text
+            # # print course_text
+            # print credit_hr_text
+            # print course_obj.description
+            # # print description_text
 
-            print course_obj.title
-            print course_obj.course
-            # print title_text
-            # print course_text
-            print credit_hr_text
-            print course_obj.description
-            # print description_text
-            print find_prereq
-            print find_sameas
+            # get new copy of course2group
+            all_entries = models.Course2Group.objects.all()
+            # find_sameas
+            split = re.split('(\w+\ \d+)', find_sameas)
+            # print split
+            for blocks in xrange(len(split)):
+                if blocks % 2 == 1:
+                    course2id_model, course2id_bool = models.Course2Group.objects.get_or_create(
+                        CourseID=split[blocks], GroupID=maxID)
+
+            # print 2
+            # prerequisite too complex. cs357: Prereqs are A or B; C. A and B are not cross listed (same as)
+            # # get new copy of course2group
+            # all_entries = models.Course2Group.objects.all()
+            # # find_prereq
+            # split = re.split('(\w+\ \d+)', find_prereq)
+            # prereqID = 0
+            # for blocks in xrange(len(split)):
+            #     if blocks % 2 == 1:
+            #         for tuples in all_entries:
+            #             if tuples.CourseID == split[blocks]:
+            #                 prereqID = tuples.GroupID
+            #         # split[blocks] was not in the all entries table
+            #         # if prereqID == 0:
 
         except:
+            # no course, no point getting slots
+            return
             pass
             # print "Course Not Found"
 
@@ -206,6 +259,8 @@ class Parser:
         try:
             table_struct = subject_infos[0].find_next_sibling("div", class_="portlet-container-flex")
             table = table_struct.find("tbody")
+            # print table
+            # sys.exit(0)
             # (table-item[^ ]*) ([^ ]+) (.*)
             # doesnt match on space?
             table_entry = table.find_all("tr", class_=re.compile(r"^table-item$"))
@@ -280,18 +335,17 @@ class Parser:
 
                 section_obj = DataStruct.Section(crn_text, type_text, section_text, time_text, day_text, location_text,
                                                  instructor_text, detail_text)
-                # section_model, section_bool = models.Slots.objects.get_or_create(
-                #     CRN=crn_text, Type=type_text, Time=time_text, Section=section_text,
-                #     Days=day_text, Location=location_text, Professor=instructor_text, CourseID=title_text)
-
-
-                print "CRN: " + section_obj.crn
-                print "Type: " + section_obj.type
-                print "Section: " + section_obj.section
-                print "Time: " + section_obj.time
-                print "Day: " + section_obj.day
-                print "Location: " + section_obj.location
-                print "Instructor: " + section_obj.instructor
+                section_model, section_bool = models.Slots.objects.get_or_create(
+                    CRN=crn_text, Type=type_text, Time=time_text, Section=section_text,
+                    Days=day_text, Location=location_text, Professor=instructor_text, CourseID=title_text)
+                # print 3
+                # print "CRN: " + section_obj.crn
+                # print "Type: " + section_obj.type
+                # print "Section: " + section_obj.section
+                # print "Time: " + section_obj.time
+                # print "Day: " + section_obj.day
+                # print "Location: " + section_obj.location
+                # print "Instructor: " + section_obj.instructor
                 # print "CRN: " + crn_text
                 # print "Type: " + type_text
                 # print "Section: " + section_text
@@ -299,44 +353,12 @@ class Parser:
                 # print "Day: " + day_text
                 # print "Location: " + location_text
                 # print "Instructor: " + instructor_text
-                print detail_text
+                # print detail_text
 
         except:
             pass
             # print "Course Sections Not Found"
 
-        sys.stdout = orig_stdout
-        f.close()
-
-    # def get_links(self):
-    #     orig_stdout = sys.stdout
-    #     f = open('links.txt', 'w')
-    #     sys.stdout = f
-    #     for link in self.soup.find_all('a'):
-    #         print(link.get('href'))
-    #     sys.stdout = orig_stdout
-    #     f.close()
-
-    # def get_text(self, find):
-    #     orig_stdout = sys.stdout
-    #     f = open('text_find.txt', 'w')
-    #     sys.stdout = f
-    #     print self.soup.find_all(text=find)
-    #     sys.stdout = orig_stdout
-    #     f.close()
-
-    # def print_data(self):
-    #     orig_stdout = sys.stdout
-    #     f = open('data.txt', 'w')
-    #     sys.stdout = f
-    #     print self.data
-    #     sys.stdout = orig_stdout
-    #     f.close()
-
-    # def print_text(self):
-    #     orig_stdout = sys.stdout
-    #     f = open('text.txt', 'w')
-    #     sys.stdout = f
-    #     print self.soup.get_text().encode('utf-8')
-    #     sys.stdout = orig_stdout
-    #     f.close()
+        print "Done"
+        # sys.stdout = orig_stdout
+        # f.close()

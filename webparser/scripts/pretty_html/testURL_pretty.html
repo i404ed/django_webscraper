@@ -183,34 +183,27 @@
         </h3>
         <div class=" fl-col-fixed fl-force-right" id="portalSidebar">
          <div id="portalSidebarInner">
-          <div class="fl-widget" id="portalLogin">
-           <div class="fl-widget-inner">
-            <div class="fl-widget-titlebar">
-             <h2>
-              Sign In
-             </h2>
-            </div>
-            <div class="fl-widget-content" id="portalLoginStandard">
-             <form action="Login" id="portalLoginForm" method="post">
-              <input name="action" type="hidden" value="login"/>
-              <label for="userName">
-               NetID:
-              </label>
-              <input id="userName" name="userName" size="15" type="text" value=""/>
-              <label for="password">
-               AD Password:
-              </label>
-              <input id="password" name="password" size="15" type="password"/>
-              <input class="portlet-form-button" id="portalLoginButton" name="Login" type="submit" value="Sign In"/>
-             </form>
-             <p>
-              <a href="https://passwords.cites.uiuc.edu/index.html" id="portalLoginForgot">
-               To set or change your AD password
-              </a>
-             </p>
-            </div>
-           </div>
-          </div>
+          <do label="Submit" type="accept">
+           <go href="Authentication">
+            <postfield name="userName" value="$(userName)">
+            </postfield>
+            <postfield name="password" value="$(password)">
+            </postfield>
+           </go>
+          </do>
+          <do label="Back" type="options">
+           <prev>
+           </prev>
+          </do>
+          <p>
+           User name:
+           <input name="userName" size="15"/>
+           <br/>
+           Password:
+           <input name="password" size="15"/>
+           <br/>
+           Press Submit to login...
+          </p>
          </div>
         </div>
         <div class="fl-col-flex-right">
@@ -257,7 +250,7 @@
                <div class="portlet-tabs-wrapper portlet-tab-bottom portlet-clearmargin">
                 <ul class="portlet-tabs portlet-tabs-left">
                  <li>
-                  <a href="/uPortal/render.userLayoutRootNode.target.u41998l1n6.uP?pltc_target=210253.u41998l1n6&amp;pltc_type=RENDER&amp;pltp_action=cisHomeView#u41998l1n6">
+                  <a href="/uPortal/render.userLayoutRootNode.target.u41998l1n6.uP;jsessionid=F258A807B25C1EE7EE630EF7ACD0640C?pltc_target=210253.u41998l1n6&amp;pltc_type=RENDER&amp;pltp_action=cisHomeView#u41998l1n6">
                    Home
                   </a>
                  </li>
@@ -265,29 +258,29 @@
                   Class Schedule
                  </li>
                  <li>
-                  <a href="/uPortal/render.userLayoutRootNode.target.u41998l1n6.uP?pltc_target=210253.u41998l1n6&amp;pltc_type=RENDER&amp;pltp_course=MATH&amp;pltp_sessionId=default&amp;pltp_classNumber=012&amp;pltp_term=fall&amp;pltp_action=catalogCourseView&amp;pltp_year=2014#u41998l1n6">
+                  <a href="/uPortal/render.userLayoutRootNode.target.u41998l1n6.uP;jsessionid=F258A807B25C1EE7EE630EF7ACD0640C?pltc_target=210253.u41998l1n6&amp;pltc_type=RENDER&amp;pltp_action=catalogSubjectsView#u41998l1n6">
                    Course Catalog
                   </a>
                  </li>
                  <li>
-                  <a href="/uPortal/render.userLayoutRootNode.target.u41998l1n6.uP?pltc_target=210253.u41998l1n6&amp;pltc_type=RENDER&amp;pltp_action=genedCatView#u41998l1n6">
+                  <a href="/uPortal/render.userLayoutRootNode.target.u41998l1n6.uP;jsessionid=F258A807B25C1EE7EE630EF7ACD0640C?pltc_target=210253.u41998l1n6&amp;pltc_type=RENDER&amp;pltp_action=genedCatView#u41998l1n6">
                    GenEd REQs
                   </a>
                  </li>
                  <li>
-                  <a href="/uPortal/render.userLayoutRootNode.target.u41998l1n6.uP?pltc_target=210253.u41998l1n6&amp;pltc_type=RENDER&amp;pltp_action=searchCoursesForm#u41998l1n6">
+                  <a href="/uPortal/render.userLayoutRootNode.target.u41998l1n6.uP;jsessionid=F258A807B25C1EE7EE630EF7ACD0640C?pltc_target=210253.u41998l1n6&amp;pltc_type=RENDER&amp;pltp_action=searchCoursesForm#u41998l1n6">
                    Search
                   </a>
                  </li>
                  <li>
-                  <a href="/uPortal/render.userLayoutRootNode.target.u41998l1n6.uP?pltc_target=210253.u41998l1n6&amp;pltc_type=RENDER&amp;pltp_action=resourcesView#u41998l1n6">
+                  <a href="/uPortal/render.userLayoutRootNode.target.u41998l1n6.uP;jsessionid=F258A807B25C1EE7EE630EF7ACD0640C?pltc_target=210253.u41998l1n6&amp;pltc_type=RENDER&amp;pltp_action=resourcesView#u41998l1n6">
                    Resources
                   </a>
                  </li>
                 </ul>
                 <!--        
 <div class="personal-tab">
-    <a href="/uPortal/render.userLayoutRootNode.target.u41998l1n6.uP?pltc_target=210253.u41998l1n6&pltc_type=RENDER&pltp_action=personalTabView#u41998l1n6">
+    <a href="/uPortal/render.userLayoutRootNode.target.u41998l1n6.uP;jsessionid=F258A807B25C1EE7EE630EF7ACD0640C?pltc_target=210253.u41998l1n6&pltc_type=RENDER&pltp_action=personalTabView#u41998l1n6">
         Me
     </a>
 </div>
@@ -324,7 +317,7 @@
                   &gt;
                  </li>
                  <li>
-                  398
+                  373
                  </li>
                 </ul>
                 <div class="cis-helper-links">
@@ -336,21 +329,21 @@
                  <span class="link-divider cis-right">
                  </span>
                  <div class="pdf-link cis-right cis-service">
-                  <a href="/cis-pac/schedule/2014/spring/CS/398.pdf" id="create-pdf" title="Get a Pdf version of this page">
+                  <a href="/cis-pac/schedule/2014/spring/CS/373.pdf" id="create-pdf" title="Get a Pdf version of this page">
                    pdf
                   </a>
                  </div>
                  <span class="link-divider cis-right">
                  </span>
                  <div class="cis-right cis-service">
-                  <a href="https://courses.illinois.edu/cisapp/dispatcher/schedule/2014/spring/CS/398" id="copy-link" title="click to copy this link to the clipboard">
+                  <a href="https://courses.illinois.edu/cisapp/dispatcher/schedule/2014/spring/CS/373" id="copy-link" title="click to copy this link to the clipboard">
                    Copy Link
                   </a>
                  </div>
                  <span class="link-divider cis-right">
                  </span>
                  <div class="cis-right cis-service">
-                  <a href="mailto:?subject=Course Explorer Schedule link&amp;body=https://courses.illinois.edu/cisapp/dispatcher/schedule/2014/spring/CS/398" title="Share this page via email">
+                  <a href="mailto:?subject=Course Explorer Schedule link&amp;body=https://courses.illinois.edu/cisapp/dispatcher/schedule/2014/spring/CS/373" title="Share this page via email">
                    Share Page
                   </a>
                  </div>
@@ -358,7 +351,7 @@
                </div>
                <div class="cis-title-wrapper">
                 <p class="cis-section-title">
-                 CS 398
+                 CS 373
                 </p>
                 <div class="offpage" id="class-aria">
                  Use arrow keys to select classes available for given term and session from list.
@@ -372,7 +365,7 @@
                  <ul class="cis-dropdown" id="course-rubric-menu">
                   <li class="selected">
                    <a aria-describedby="class-aria" class="selected-active" href="#">
-                    CS 398
+                    CS 373
                    </a>
                    <img src="/cis-pac/rs/portlets/cis/img/asc.gif"/>
                    <ul>
@@ -692,30 +685,45 @@
                 </div>
                </div>
                <p class="cis-section-course portlet-padtop1">
-                Special Topics
+                Theory of Computation
                </p>
                <div id="subject-info1">
                 <p class="portlet-padtop10">
                  <strong>
                   Credit:
                  </strong>
-                 0 TO 4 hours.
+                 3 hours.
                 </p>
                 <p class="portlet-padtop10">
-                 Subject offerings of new and developing areas of knowledge in computer science intended to augment the existing curriculum. See Class Schedule or departmental course information for topics and prerequisites.
+                 Finite automata and regular languages; pushdown automata and context-free languages; Turing machines and recursively enumerable sets; computability and the halting problem; undecidable problems.
                 </p>
                 <p class="portlet-padtop10">
-                 May be repeated in the same or separate terms if topics vary.
+                 Prerequisite: CS 173 or MATH 213; CS 225.
                 </p>
                </div>
                <div id="subject-info2">
+                <p class="portlet-padtop10">
+                 Students must register for one lecture and one discussion section.
+                </p>
                </div>
+               <p class="portlet-padtop10">
+                <strong>
+                 This course satisfies the General Education Criteria in
+                 <span class="assert-text">
+                  Spring 2014
+                 </span>
+                 for a
+                </strong>
+                <br/>
+                UIUC: Quant Reasoning II course
+               </p>
                <div class="keyword-help-toggle status-icon portlet-padtop10">
                 <a href="#iconHelp" title="status icon help">
                  Status Icon Legend
                 </a>
                 <a href="#iconImgHelp" title="Status Icon Legend">
-                 <img alt="Status Icon Legend" src="/ResourceServingWebapp/rs/famfamfam/silk/1.3/help.png"/>
+                 <img alt="Status Icon Legend" src="/ResourceServingWebapp/rs/famfamfam/silk/1.3/help.png">
+                 </img>
                 </a>
                </div>
                <p class="cis-section vergurbold font-14 portlet-padtop20">
@@ -772,7 +780,7 @@
                  </em>
                 </p>
                 <p class="portlet-padtop10">
-                 <span class="keyword-help-toggle">
+                 <span class="toggle-box-span">
                   <a href="#iconHelpBox" title="abbreviations help">
                    Close Icon Help
                   </a>
@@ -824,97 +832,6 @@
                    <td class="w50">
                     <div class="section-meeting">
                      <span class="fl-offScreen-hidden">
-                      section closed
-                     </span>
-                     <img alt="Closed" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionClosed.png" title="Closed"/>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     58541
-                    </div>
-                   </td>
-                   <td class="w80">
-                    <div class="section-meeting">
-                     Lecture
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                    </div>
-                    AL1
-                   </td>
-                   <td class="w75">
-                    <div class="section-meeting">
-                     10:00 AM - 10:50 AM
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                     MWF
-                    </div>
-                   </td>
-                   <td class="w120">
-                    <div class="section-meeting">
-                     1320 Digital Computer Laboratory
-                    </div>
-                   </td>
-                   <td class="ie-table-width">
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item-detail t1 highlight-detail-row" style="display: table-row;">
-                   <td colspan="9">
-                    <div class="portlet-list-wrapper">
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Availability:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Closed
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Credit:
-                      </div>
-                      <div class="yui3-u-w600">
-                       4 hours
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Title:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Computer Architecture
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Part of Term:
-                      </div>
-                      <div class="yui3-u-w600">
-                       1
-                      </div>
-                     </div>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item t2 highlight-item-row">
-                   <td class="w35 click-toggle-row expandRowDown expandRowUp">
-                    <div class="section-meeting">
-                     <a class="toggle-control" href="#link2" title="hide section detail">
-                      <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
-                     </a>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     <span class="fl-offScreen-hidden">
                       section open
                      </span>
                      <img alt="Open" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionOpen.png" title="Open"/>
@@ -922,853 +839,22 @@
                    </td>
                    <td class="w50">
                     <div class="section-meeting">
-                     58512
+                     50145
                     </div>
                    </td>
                    <td class="w80">
                     <div class="section-meeting">
                      Discussion/Recitation
                     </div>
-                    <div class="section-meeting">
-                     Laboratory
-                    </div>
                    </td>
                    <td class="w55">
                     <div class="section-meeting">
                     </div>
-                    AYA
-                    <div class="section-meeting">
-                    </div>
-                    AYA
-                   </td>
-                   <td class="w75">
-                    <div class="section-meeting">
-                     01:00 PM - 01:50 PM
-                    </div>
-                    <div class="section-meeting">
-                     02:00 PM - 02:50 PM
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                     M
-                    </div>
-                    <div class="section-meeting">
-                     M
-                    </div>
-                   </td>
-                   <td class="w120">
-                    <div class="section-meeting">
-                     1111 Siebel Center for Comp Sci
-                    </div>
-                    <div class="section-meeting">
-                     0220 Siebel Center for Comp Sci
-                    </div>
-                   </td>
-                   <td class="instructor ie-table-width">
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item-detail t2 highlight-detail-row" style="display: table-row;">
-                   <td colspan="9">
-                    <div class="portlet-list-wrapper">
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Availability:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Open
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Title:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Computer Architecture
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Part of Term:
-                      </div>
-                      <div class="yui3-u-w600">
-                       1
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Info:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Lab section meets in 0218 Siebel Center
-                      </div>
-                     </div>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item t3 highlight-item-row">
-                   <td class="w35 click-toggle-row expandRowDown expandRowUp">
-                    <div class="section-meeting">
-                     <a class="toggle-control" href="#link3" title="hide section detail">
-                      <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
-                     </a>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     <span class="fl-offScreen-hidden">
-                      section closed
-                     </span>
-                     <img alt="Closed" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionClosed.png" title="Closed"/>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     58513
-                    </div>
-                   </td>
-                   <td class="w80">
-                    <div class="section-meeting">
-                     Discussion/Recitation
-                    </div>
-                    <div class="section-meeting">
-                     Laboratory
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                    </div>
-                    AYB
-                    <div class="section-meeting">
-                    </div>
-                    AYB
-                   </td>
-                   <td class="w75">
-                    <div class="section-meeting">
-                     02:00 PM - 02:50 PM
-                    </div>
-                    <div class="section-meeting">
-                     03:00 PM - 03:50 PM
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                     M
-                    </div>
-                    <div class="section-meeting">
-                     M
-                    </div>
-                   </td>
-                   <td class="w120">
-                    <div class="section-meeting">
-                     1111 Siebel Center for Comp Sci
-                    </div>
-                    <div class="section-meeting">
-                     0220 Siebel Center for Comp Sci
-                    </div>
-                   </td>
-                   <td class="instructor ie-table-width">
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item-detail t3 highlight-detail-row" style="display: table-row;">
-                   <td colspan="9">
-                    <div class="portlet-list-wrapper">
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Availability:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Closed
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Title:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Computer Architecture
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Part of Term:
-                      </div>
-                      <div class="yui3-u-w600">
-                       1
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Info:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Lab section meets in 0218 Siebel Center
-                      </div>
-                     </div>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item t4 highlight-item-row">
-                   <td class="w35 click-toggle-row expandRowDown expandRowUp">
-                    <div class="section-meeting">
-                     <a class="toggle-control" href="#link4" title="hide section detail">
-                      <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
-                     </a>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     <span class="fl-offScreen-hidden">
-                      section closed
-                     </span>
-                     <img alt="Closed" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionClosed.png" title="Closed"/>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     58514
-                    </div>
-                   </td>
-                   <td class="w80">
-                    <div class="section-meeting">
-                     Discussion/Recitation
-                    </div>
-                    <div class="section-meeting">
-                     Laboratory
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                    </div>
-                    AYC
-                    <div class="section-meeting">
-                    </div>
-                    AYC
-                   </td>
-                   <td class="w75">
-                    <div class="section-meeting">
-                     03:00 PM - 03:50 PM
-                    </div>
-                    <div class="section-meeting">
-                     04:00 PM - 04:50 PM
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                     M
-                    </div>
-                    <div class="section-meeting">
-                     M
-                    </div>
-                   </td>
-                   <td class="w120">
-                    <div class="section-meeting">
-                     1111 Siebel Center for Comp Sci
-                    </div>
-                    <div class="section-meeting">
-                     0220 Siebel Center for Comp Sci
-                    </div>
-                   </td>
-                   <td class="instructor ie-table-width">
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item-detail t4 highlight-detail-row" style="display: table-row;">
-                   <td colspan="9">
-                    <div class="portlet-list-wrapper">
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Availability:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Closed
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Title:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Computer Architecture
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Part of Term:
-                      </div>
-                      <div class="yui3-u-w600">
-                       1
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Info:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Lab section meets in 0218 Siebel Center
-                      </div>
-                     </div>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item t5 highlight-item-row">
-                   <td class="w35 click-toggle-row expandRowDown expandRowUp">
-                    <div class="section-meeting">
-                     <a class="toggle-control" href="#link5" title="hide section detail">
-                      <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
-                     </a>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     <span class="fl-offScreen-hidden">
-                      section closed
-                     </span>
-                     <img alt="Closed" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionClosed.png" title="Closed"/>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     58515
-                    </div>
-                   </td>
-                   <td class="w80">
-                    <div class="section-meeting">
-                     Discussion/Recitation
-                    </div>
-                    <div class="section-meeting">
-                     Laboratory
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                    </div>
-                    AYD
-                    <div class="section-meeting">
-                    </div>
-                    AYD
-                   </td>
-                   <td class="w75">
-                    <div class="section-meeting">
-                     12:00 PM - 12:50 PM
-                    </div>
-                    <div class="section-meeting">
-                     01:00 PM - 01:50 PM
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                     T
-                    </div>
-                    <div class="section-meeting">
-                     T
-                    </div>
-                   </td>
-                   <td class="w120">
-                    <div class="section-meeting">
-                     1111 Siebel Center for Comp Sci
-                    </div>
-                    <div class="section-meeting">
-                     0220 Siebel Center for Comp Sci
-                    </div>
-                   </td>
-                   <td class="instructor ie-table-width">
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item-detail t5 highlight-detail-row" style="display: table-row;">
-                   <td colspan="9">
-                    <div class="portlet-list-wrapper">
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Availability:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Closed
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Title:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Computer Architecture
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Part of Term:
-                      </div>
-                      <div class="yui3-u-w600">
-                       1
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Info:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Lab section meets in 0218 Siebel Center
-                      </div>
-                     </div>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item t6 highlight-item-row">
-                   <td class="w35 click-toggle-row expandRowDown expandRowUp">
-                    <div class="section-meeting">
-                     <a class="toggle-control" href="#link6" title="hide section detail">
-                      <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
-                     </a>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     <span class="fl-offScreen-hidden">
-                      section closed
-                     </span>
-                     <img alt="Closed" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionClosed.png" title="Closed"/>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     58516
-                    </div>
-                   </td>
-                   <td class="w80">
-                    <div class="section-meeting">
-                     Discussion/Recitation
-                    </div>
-                    <div class="section-meeting">
-                     Laboratory
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                    </div>
-                    AYE
-                    <div class="section-meeting">
-                    </div>
-                    AYE
-                   </td>
-                   <td class="w75">
-                    <div class="section-meeting">
-                     01:00 PM - 01:50 PM
-                    </div>
-                    <div class="section-meeting">
-                     02:00 PM - 02:50 PM
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                     T
-                    </div>
-                    <div class="section-meeting">
-                     T
-                    </div>
-                   </td>
-                   <td class="w120">
-                    <div class="section-meeting">
-                     1111 Siebel Center for Comp Sci
-                    </div>
-                    <div class="section-meeting">
-                     0220 Siebel Center for Comp Sci
-                    </div>
-                   </td>
-                   <td class="instructor ie-table-width">
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item-detail t6 highlight-detail-row" style="display: table-row;">
-                   <td colspan="9">
-                    <div class="portlet-list-wrapper">
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Availability:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Closed
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Title:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Computer Architecture
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Part of Term:
-                      </div>
-                      <div class="yui3-u-w600">
-                       1
-                      </div>
-                     </div>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item t7 highlight-item-row">
-                   <td class="w35 click-toggle-row expandRowDown expandRowUp">
-                    <div class="section-meeting">
-                     <a class="toggle-control" href="#link7" title="hide section detail">
-                      <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
-                     </a>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     <span class="fl-offScreen-hidden">
-                      section open
-                     </span>
-                     <img alt="Open" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionOpen.png" title="Open"/>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     58517
-                    </div>
-                   </td>
-                   <td class="w80">
-                    <div class="section-meeting">
-                     Discussion/Recitation
-                    </div>
-                    <div class="section-meeting">
-                     Laboratory
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                    </div>
-                    AYF
-                    <div class="section-meeting">
-                    </div>
-                    AYF
-                   </td>
-                   <td class="w75">
-                    <div class="section-meeting">
-                     02:00 PM - 02:50 PM
-                    </div>
-                    <div class="section-meeting">
-                     03:00 PM - 03:50 PM
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                     T
-                    </div>
-                    <div class="section-meeting">
-                     T
-                    </div>
-                   </td>
-                   <td class="w120">
-                    <div class="section-meeting">
-                     1111 Siebel Center for Comp Sci
-                    </div>
-                    <div class="section-meeting">
-                     0220 Siebel Center for Comp Sci
-                    </div>
-                   </td>
-                   <td class="instructor ie-table-width">
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item-detail t7 highlight-detail-row" style="display: table-row;">
-                   <td colspan="9">
-                    <div class="portlet-list-wrapper">
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Availability:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Open
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Title:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Computer Architecture
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Part of Term:
-                      </div>
-                      <div class="yui3-u-w600">
-                       1
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Info:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Lab sections meets in 0218 Siebel Center
-                      </div>
-                     </div>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item t8 highlight-item-row">
-                   <td class="w35 click-toggle-row expandRowDown expandRowUp">
-                    <div class="section-meeting">
-                     <a class="toggle-control" href="#link8" title="hide section detail">
-                      <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
-                     </a>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     <span class="fl-offScreen-hidden">
-                      section open
-                     </span>
-                     <img alt="Open" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionOpen.png" title="Open"/>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     58518
-                    </div>
-                   </td>
-                   <td class="w80">
-                    <div class="section-meeting">
-                     Discussion/Recitation
-                    </div>
-                    <div class="section-meeting">
-                     Laboratory
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                    </div>
-                    AYG
-                    <div class="section-meeting">
-                    </div>
-                    AYG
-                   </td>
-                   <td class="w75">
-                    <div class="section-meeting">
-                     03:00 PM - 03:50 PM
-                    </div>
-                    <div class="section-meeting">
-                     04:00 PM - 04:50 PM
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                     T
-                    </div>
-                    <div class="section-meeting">
-                     T
-                    </div>
-                   </td>
-                   <td class="w120">
-                    <div class="section-meeting">
-                     1111 Siebel Center for Comp Sci
-                    </div>
-                    <div class="section-meeting">
-                     0220 Siebel Center for Comp Sci
-                    </div>
-                   </td>
-                   <td class="instructor ie-table-width">
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                    <div class="section-meeting">
-                     Zilles, C
-                     <br/>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item-detail t8 highlight-detail-row" style="display: table-row;">
-                   <td colspan="9">
-                    <div class="portlet-list-wrapper">
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Availability:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Open
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Title:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Computer Architecture
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Part of Term:
-                      </div>
-                      <div class="yui3-u-w600">
-                       1
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Info:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Lab sections meets in 0218 Siebel Center
-                      </div>
-                     </div>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item t9 highlight-item-row">
-                   <td class="w35 click-toggle-row expandRowDown expandRowUp">
-                    <div class="section-meeting">
-                     <a class="toggle-control" href="#link9" title="hide section detail">
-                      <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
-                     </a>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     <span class="fl-offScreen-hidden">
-                      section closed
-                     </span>
-                     <img alt="Closed" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionClosed.png" title="Closed"/>
-                    </div>
-                   </td>
-                   <td class="w50">
-                    <div class="section-meeting">
-                     61030
-                    </div>
-                   </td>
-                   <td class="w80">
-                    <div class="section-meeting">
-                     Lecture-Discussion
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                    </div>
-                    VL
-                   </td>
-                   <td class="w75">
-                    <div class="section-meeting">
-                     09:30 AM - 10:45 AM
-                    </div>
-                   </td>
-                   <td class="w55">
-                    <div class="section-meeting">
-                     TR
-                    </div>
-                   </td>
-                   <td class="w120">
-                    <div class="section-meeting">
-                     1304 Siebel Center for Comp Sci
-                    </div>
-                   </td>
-                   <td class="ie-table-width">
-                    <div class="section-meeting">
-                     Heeren, C
-                     <br/>
-                     Khuri, M
-                     <br/>
-                    </div>
-                   </td>
-                  </tr>
-                  <tr class="table-item-detail t9 highlight-detail-row" style="display: table-row;">
-                   <td colspan="9">
-                    <div class="portlet-list-wrapper">
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Availability:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Closed
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Credit:
-                      </div>
-                      <div class="yui3-u-w600">
-                       3 hours
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Section Title:
-                      </div>
-                      <div class="yui3-u-w600">
-                       Visualizing Literature
-                      </div>
-                     </div>
-                     <div class="yui3-g">
-                      <div class="yui3-u-w110">
-                       Part of Term:
-                      </div>
-                      <div class="yui3-u-w600">
-                       1
-                      </div>
-                     </div>
-                    </div>
+                    AD1
                    </td>
                   </tr>
                  </tbody>
                 </table>
-               </div>
-               <div class="font-11" id="cis-footer">
-                <span class="footer-tag">
-                 Created by Student Services Development Team
-                </span>
-                <a href="https://illinois.edu/fb/sec/2080949" target="_blank">
-                 Course Explorer Feedback
-                </a>
                </div>
               </div>
              </div>
@@ -1780,21 +866,583 @@
        </div>
       </div>
      </div>
-     <div class="drop-warning" id="portalDropWarning">
-      <p>
-       The box cannot be placed any higher in this column.
-      </p>
-     </div>
-     <div class="portalSpaceDivider">
-      <div class="bottomleft-x">
-      </div>
-      <div class="bottomright-x">
-      </div>
-     </div>
-     <div class="portal-navigation" id="portalFlyoutNavigation">
-     </div>
-     <script type="text/javascript">
-      //<![CDATA[
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
+<td class="w75">
+ <div class="section-meeting">
+  11:00 AM - 11:50 AM
+ </div>
+</td>
+<td class="w55">
+ <div class="section-meeting">
+  W
+ </div>
+</td>
+<td class="w120">
+ <div class="section-meeting">
+  1111 Siebel Center for Comp Sci
+ </div>
+</td>
+<td class="ie-table-width">
+ <div class="section-meeting">
+  Meseguer, J
+  <br/>
+ </div>
+</td>
+<tr class="table-item-detail t1 highlight-detail-row" style="display: table-row;">
+ <td colspan="9">
+  <div class="portlet-list-wrapper">
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Availability:
+    </div>
+    <div class="yui3-u-w600">
+     Open
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Degree Notes:
+    </div>
+    <div class="yui3-u-w600">
+     Quant Reasoning II course.
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Part of Term:
+    </div>
+    <div class="yui3-u-w600">
+     1
+    </div>
+   </div>
+  </div>
+ </td>
+</tr>
+<tr class="table-item t2 highlight-item-row">
+ <td class="w35 click-toggle-row expandRowDown expandRowUp">
+  <div class="section-meeting">
+   <a class="toggle-control" href="#link2" title="hide section detail">
+    <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
+   </a>
+  </div>
+ </td>
+ <td class="w50">
+  <div class="section-meeting">
+   <span class="fl-offScreen-hidden">
+    section open
+   </span>
+   <img alt="Open" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionOpen.png" title="Open"/>
+  </div>
+ </td>
+ <td class="w50">
+  <div class="section-meeting">
+   50146
+  </div>
+ </td>
+ <td class="w80">
+  <div class="section-meeting">
+   Discussion/Recitation
+  </div>
+ </td>
+ <td class="w55">
+  <div class="section-meeting">
+  </div>
+  AD2
+ </td>
+</tr>
+<td class="w75">
+ <div class="section-meeting">
+  12:00 PM - 12:50 PM
+ </div>
+</td>
+<td class="w55">
+ <div class="section-meeting">
+  W
+ </div>
+</td>
+<td class="w120">
+ <div class="section-meeting">
+  1214 Siebel Center for Comp Sci
+ </div>
+</td>
+<td class="ie-table-width">
+ <div class="section-meeting">
+  Meseguer, J
+  <br/>
+ </div>
+</td>
+<tr class="table-item-detail t2 highlight-detail-row" style="display: table-row;">
+ <td colspan="9">
+  <div class="portlet-list-wrapper">
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Availability:
+    </div>
+    <div class="yui3-u-w600">
+     Open
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Degree Notes:
+    </div>
+    <div class="yui3-u-w600">
+     Quant Reasoning II course.
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Part of Term:
+    </div>
+    <div class="yui3-u-w600">
+     1
+    </div>
+   </div>
+  </div>
+ </td>
+</tr>
+<tr class="table-item t3 highlight-item-row">
+ <td class="w35 click-toggle-row expandRowDown expandRowUp">
+  <div class="section-meeting">
+   <a class="toggle-control" href="#link3" title="hide section detail">
+    <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
+   </a>
+  </div>
+ </td>
+ <td class="w50">
+  <div class="section-meeting">
+   <span class="fl-offScreen-hidden">
+    section open
+   </span>
+   <img alt="Open" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionOpen.png" title="Open"/>
+  </div>
+ </td>
+ <td class="w50">
+  <div class="section-meeting">
+   50147
+  </div>
+ </td>
+ <td class="w80">
+  <div class="section-meeting">
+   Discussion/Recitation
+  </div>
+ </td>
+ <td class="w55">
+  <div class="section-meeting">
+  </div>
+  AD3
+ </td>
+</tr>
+<td class="w75">
+ <div class="section-meeting">
+  01:00 PM - 01:50 PM
+ </div>
+</td>
+<td class="w55">
+ <div class="section-meeting">
+  W
+ </div>
+</td>
+<td class="w120">
+ <div class="section-meeting">
+  1111 Siebel Center for Comp Sci
+ </div>
+</td>
+<td class="ie-table-width">
+ <div class="section-meeting">
+  Meseguer, J
+  <br/>
+ </div>
+</td>
+<tr class="table-item-detail t3 highlight-detail-row" style="display: table-row;">
+ <td colspan="9">
+  <div class="portlet-list-wrapper">
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Availability:
+    </div>
+    <div class="yui3-u-w600">
+     Open
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Degree Notes:
+    </div>
+    <div class="yui3-u-w600">
+     Quant Reasoning II course.
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Part of Term:
+    </div>
+    <div class="yui3-u-w600">
+     1
+    </div>
+   </div>
+  </div>
+ </td>
+</tr>
+<tr class="table-item t4 highlight-item-row">
+ <td class="w35 click-toggle-row expandRowDown expandRowUp">
+  <div class="section-meeting">
+   <a class="toggle-control" href="#link4" title="hide section detail">
+    <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
+   </a>
+  </div>
+ </td>
+ <td class="w50">
+  <div class="section-meeting">
+   <span class="fl-offScreen-hidden">
+    section open
+   </span>
+   <img alt="Open" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionOpen.png" title="Open"/>
+  </div>
+ </td>
+ <td class="w50">
+  <div class="section-meeting">
+   50148
+  </div>
+ </td>
+ <td class="w80">
+  <div class="section-meeting">
+   Discussion/Recitation
+  </div>
+ </td>
+ <td class="w55">
+  <div class="section-meeting">
+  </div>
+  AD4
+ </td>
+</tr>
+<td class="w75">
+ <div class="section-meeting">
+  02:00 PM - 02:50 PM
+ </div>
+</td>
+<td class="w55">
+ <div class="section-meeting">
+  W
+ </div>
+</td>
+<td class="w120">
+ <div class="section-meeting">
+  1111 Siebel Center for Comp Sci
+ </div>
+</td>
+<td class="ie-table-width">
+ <div class="section-meeting">
+  Meseguer, J
+  <br/>
+ </div>
+</td>
+<tr class="table-item-detail t4 highlight-detail-row" style="display: table-row;">
+ <td colspan="9">
+  <div class="portlet-list-wrapper">
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Availability:
+    </div>
+    <div class="yui3-u-w600">
+     Open
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Degree Notes:
+    </div>
+    <div class="yui3-u-w600">
+     Quant Reasoning II course.
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Part of Term:
+    </div>
+    <div class="yui3-u-w600">
+     1
+    </div>
+   </div>
+  </div>
+ </td>
+</tr>
+<tr class="table-item t5 highlight-item-row">
+ <td class="w35 click-toggle-row expandRowDown expandRowUp">
+  <div class="section-meeting">
+   <a class="toggle-control" href="#link5" title="hide section detail">
+    <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
+   </a>
+  </div>
+ </td>
+ <td class="w50">
+  <div class="section-meeting">
+   <span class="fl-offScreen-hidden">
+    section open
+   </span>
+   <img alt="Open" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionOpen.png" title="Open"/>
+  </div>
+ </td>
+ <td class="w50">
+  <div class="section-meeting">
+   52356
+  </div>
+ </td>
+ <td class="w80">
+  <div class="section-meeting">
+   Discussion/Recitation
+  </div>
+ </td>
+ <td class="w55">
+  <div class="section-meeting">
+  </div>
+  AD5
+ </td>
+</tr>
+<td class="w75">
+ <div class="section-meeting">
+  03:00 PM - 03:50 PM
+ </div>
+</td>
+<td class="w55">
+ <div class="section-meeting">
+  W
+ </div>
+</td>
+<td class="w120">
+ <div class="section-meeting">
+  1111 Siebel Center for Comp Sci
+ </div>
+</td>
+<td class="ie-table-width">
+ <div class="section-meeting">
+  Meseguer, J
+  <br/>
+ </div>
+</td>
+<tr class="table-item-detail t5 highlight-detail-row" style="display: table-row;">
+ <td colspan="9">
+  <div class="portlet-list-wrapper">
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Availability:
+    </div>
+    <div class="yui3-u-w600">
+     Open
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Degree Notes:
+    </div>
+    <div class="yui3-u-w600">
+     Quant Reasoning II course.
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Part of Term:
+    </div>
+    <div class="yui3-u-w600">
+     1
+    </div>
+   </div>
+  </div>
+ </td>
+</tr>
+<tr class="table-item t6 highlight-item-row">
+ <td class="w35 click-toggle-row expandRowDown expandRowUp">
+  <div class="section-meeting">
+   <a class="toggle-control" href="#link6" title="hide section detail">
+    <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
+   </a>
+  </div>
+ </td>
+ <td class="w50">
+  <div class="section-meeting">
+   <span class="fl-offScreen-hidden">
+    section open
+   </span>
+   <img alt="Open" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionOpen.png" title="Open"/>
+  </div>
+ </td>
+ <td class="w50">
+  <div class="section-meeting">
+   59427
+  </div>
+ </td>
+ <td class="w80">
+  <div class="section-meeting">
+   Discussion/Recitation
+  </div>
+ </td>
+ <td class="w55">
+  <div class="section-meeting">
+  </div>
+  AD6
+ </td>
+</tr>
+<td class="w75">
+ <div class="section-meeting">
+  04:00 PM - 04:50 PM
+ </div>
+</td>
+<td class="w55">
+ <div class="section-meeting">
+  W
+ </div>
+</td>
+<td class="w120">
+ <div class="section-meeting">
+  1111 Siebel Center for Comp Sci
+ </div>
+</td>
+<td class="ie-table-width">
+ <div class="section-meeting">
+  Meseguer, J
+  <br/>
+ </div>
+</td>
+<tr class="table-item-detail t6 highlight-detail-row" style="display: table-row;">
+ <td colspan="9">
+  <div class="portlet-list-wrapper">
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Availability:
+    </div>
+    <div class="yui3-u-w600">
+     Open
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Degree Notes:
+    </div>
+    <div class="yui3-u-w600">
+     Quant Reasoning II course.
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Part of Term:
+    </div>
+    <div class="yui3-u-w600">
+     1
+    </div>
+   </div>
+  </div>
+ </td>
+</tr>
+<tr class="table-item t7 highlight-item-row">
+ <td class="w35 click-toggle-row expandRowDown expandRowUp">
+  <div class="section-meeting">
+   <a class="toggle-control" href="#link7" title="hide section detail">
+    <img class="section-detail-control" src="/cis-pac/rs/portlets/cis/img/asc.gif" style="padding-bottom:5px;margin-left:-4px;"/>
+   </a>
+  </div>
+ </td>
+ <td class="w50">
+  <div class="section-meeting">
+   <span class="fl-offScreen-hidden">
+    section open
+   </span>
+   <img alt="Open" class="section-img" src="/cis-pac/rs/portlets/cis/img/sectionOpen.png" title="Open"/>
+  </div>
+ </td>
+ <td class="w50">
+  <div class="section-meeting">
+   50142
+  </div>
+ </td>
+ <td class="w80">
+  <div class="section-meeting">
+   Lecture
+  </div>
+ </td>
+ <td class="w55">
+  <div class="section-meeting">
+  </div>
+  AL1
+ </td>
+</tr>
+<td class="w75">
+ <div class="section-meeting">
+  09:30 AM - 10:45 AM
+ </div>
+</td>
+<td class="w55">
+ <div class="section-meeting">
+  WF
+ </div>
+</td>
+<td class="w120">
+ <div class="section-meeting">
+  1404 Siebel Center for Comp Sci
+ </div>
+</td>
+<td class="ie-table-width">
+ <div class="section-meeting">
+  Meseguer, J
+  <br/>
+ </div>
+</td>
+<tr class="table-item-detail t7 highlight-detail-row" style="display: table-row;">
+ <td colspan="9">
+  <div class="portlet-list-wrapper">
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Availability:
+    </div>
+    <div class="yui3-u-w600">
+     Open
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Degree Notes:
+    </div>
+    <div class="yui3-u-w600">
+     Quant Reasoning II course.
+    </div>
+   </div>
+   <div class="yui3-g">
+    <div class="yui3-u-w110">
+     Part of Term:
+    </div>
+    <div class="yui3-u-w600">
+     1
+    </div>
+   </div>
+  </div>
+ </td>
+</tr>
+<div "="" class="font-11" id="cis-footer">
+ <span class="footer-tag">
+  Created by Student Services Development Team
+ </span>
+ <a href="https://illinois.edu/fb/sec/2080949" target="_blank">
+  Course Explorer Feedback
+ </a>
+</div>
+<div class="drop-warning" id="portalDropWarning">
+ <p>
+  The box cannot be placed any higher in this column.
+ </p>
+</div>
+<div class="portalSpaceDivider">
+ <div class="bottomleft-x">
+ </div>
+ <div class="bottomright-x">
+ </div>
+</div>
+<div class="portal-navigation" id="portalFlyoutNavigation">
+</div>
+<script type="text/javascript">
+ //<![CDATA[
 
       up.jQuery(document).ready(function(){
         // initialize the flyout menus and add onmouseover and onmouseout events to
@@ -1804,57 +1452,52 @@
       });
     
 //]]>
-     </script>
-    </div>
-   </div>
-   <div id="push-sticky-footer">
-   </div>
+</script>
+<div id="push-sticky-footer">
+</div>
+<div class="fl-container-flex" id="portalPageFooter">
+ <div id="portalPageFooterInner">
+  <div id="portalPageFooterLinks">
+   <a href="http://www.cites.illinois.edu/help/" target="_blank" title="CITES Help Desk">
+    CITES Help Desk
+   </a>
   </div>
-  <div class="fl-container-flex" id="portalPageFooter">
-   <div id="portalPageFooterInner">
-    <div id="portalPageFooterLinks">
-     <a href="http://www.cites.illinois.edu/help/" target="_blank" title="CITES Help Desk">
-      CITES Help Desk
-     </a>
-    </div>
-    <div id="portalProductAndVersion">
-     <p>
-      <a href="http://www.jasig.org/uportal" target="_blank" title="Powered by $">
-       Powered by uPortal 3.1.1
-      </a>
-     </p>
-    </div>
-    <div id="portalCopyright">
-     <p>
-      <a href="http://www.jasig.org/uportal/about/license" target="_blank" title="uPortal">
-       uPortal
-      </a>
-      is licensed under the
-      <a href="http://www.opensource.org/licenses/bsd-license.php" target="_blank" title="New BSD License">
-       New BSD License
-      </a>
-      as approved by the Open Source Initiative (OSI), an
-      <a href="http://www.opensource.org/docs/osd" target="_blank" title="OSI-certified">
-       OSI-certified
-      </a>
-      ("open") and
-      <a href="http://www.gnu.org/licenses/license-list.html" target="_blank" title="Gnu/FSF-recognized">
-       Gnu/FSF-recognized
-      </a>
-      ("free") license.
-     </p>
-    </div>
-    <div id="silkIconsAttribution">
-     <p>
-      <a href="http://www.famfamfam.com/lab/icons/silk/" target="_blank" title="Silk icon set 1.3">
-       Silk icon set 1.3
-      </a>
-      courtesy of Mark James.
-     </p>
-    </div>
-    <script src="https://emergency.webservices.illinois.edu/illinois.js" type="text/javascript">
-    </script>
-   </div>
+  <div id="portalProductAndVersion">
+   <p>
+    <a href="http://www.jasig.org/uportal" target="_blank" title="Powered by $">
+     Powered by uPortal 3.1.1
+    </a>
+   </p>
   </div>
- </body>
-</html>
+  <div id="portalCopyright">
+   <p>
+    <a href="http://www.jasig.org/uportal/about/license" target="_blank" title="uPortal">
+     uPortal
+    </a>
+    is licensed under the
+    <a href="http://www.opensource.org/licenses/bsd-license.php" target="_blank" title="New BSD License">
+     New BSD License
+    </a>
+    as approved by the Open Source Initiative (OSI), an
+    <a href="http://www.opensource.org/docs/osd" target="_blank" title="OSI-certified">
+     OSI-certified
+    </a>
+    ("open") and
+    <a href="http://www.gnu.org/licenses/license-list.html" target="_blank" title="Gnu/FSF-recognized">
+     Gnu/FSF-recognized
+    </a>
+    ("free") license.
+   </p>
+  </div>
+  <div id="silkIconsAttribution">
+   <p>
+    <a href="http://www.famfamfam.com/lab/icons/silk/" target="_blank" title="Silk icon set 1.3">
+     Silk icon set 1.3
+    </a>
+    courtesy of Mark James.
+   </p>
+  </div>
+  <script src="https://emergency.webservices.illinois.edu/illinois.js" type="text/javascript">
+  </script>
+ </div>
+</div>

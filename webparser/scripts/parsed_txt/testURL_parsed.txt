@@ -1,0 +1,6 @@
+CS 473
+Fundamental Algorithms
+Credit: 0 TO 4 hours.
+Fundamental techniques for algorithm design and analysis, including recursion, dynamic programming, randomization, dynamic data structures, fundamental graph algorithms, and NP-completeness. Intended for undergraduates in Computer Science and graduate students in other departments. Same as CSE 414 and MATH 473. 3 undergraduate hours. 3 or 4 graduate hours. Prerequisite: CS 373. 
+Prerequisite: CS 373.
+Same as CSE 414 and MATH 473.
