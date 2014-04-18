@@ -180,41 +180,41 @@ class Parser:
                 find_sameas = "Same As Not Found"
             # print sameas_start, sameas_end, find_sameas
 
-
-            # print 0
-            course_obj = DataStruct.Course(title_text, course_text, description_text)
             # gets all Course2Group tuples
-            all_entries = models.Course2Group.objects.all()
-            # print all_entries
-            # print 0.1, len(all_entries)
+            course2id_entries = models.Course2Group.objects.all()
             # finds current course's GroupID if course is in the list
             # might as well calculate the max too
             currID = 0
             maxID = 0
-            for tuples in all_entries:
+            for tuples in course2id_entries:
                 if tuples.CourseID == title_text:
                     currID = tuples.GroupID
                 if tuples.GroupID > maxID:
                     maxID = tuples.GroupID
-            # print 0.2
-            # course is not in the list. max +1 for unique ID
+            # course is not in the list.
+            # increase max, set cur to max for unique ID
             if currID == 0:
                 maxID += 1
-            else:
-                # course is in the list, make maxID = curr for create/update
-                # either way, maxID will be the ID of the current course
-                maxID = currID
-            # print 0.3, title_text, maxID
+                currID = maxID
+            # increase max again for next unique number
+            maxID += 1
             # make/update the tuple and save
             course2id_model, course2id_bool = models.Course2Group.objects.get_or_create(
-                CourseID=title_text, GroupID=maxID)
+                CourseID=title_text, defaults={'GroupID': currID})
+            # override and save
+            course2id_model.GroupID = currID
             course2id_model.save()
-            # print 0.4, title_text, ",", course_text, ",", description_text
             # make/update the tuple and save
             course_model, course_bool = models.Course.objects.get_or_create(
-                CourseID=title_text, CourseName=course_text, Description=description_text)
+                CourseID=title_text, defaults={'CourseName': course_text, 'Description': description_text,
+                          'SameAS': find_sameas, 'PreReq': find_prereq})
+            course_model.CourseName = course_text
+            course_model.Description = description_text
+            course_model.SameAS = find_sameas
+            course_model.PreReq = find_prereq
+            # override and save
             course_model.save()
-            # print 1
+
             # print course_obj.title
             # print course_obj.course
             # # print title_text
@@ -224,14 +224,18 @@ class Parser:
             # # print description_text
 
             # get new copy of course2group
-            all_entries = models.Course2Group.objects.all()
+            course2id_entries = models.Course2Group.objects.all()
             # find_sameas
             split = re.split('(\w+\ \d+)', find_sameas)
             # print split
             for blocks in xrange(len(split)):
                 if blocks % 2 == 1:
-                    course2id_model, course2id_bool = models.Course2Group.objects.get_or_create(
-                        CourseID=split[blocks], GroupID=maxID)
+                    for tuples in course2id_entries:
+                        course2id_model, course2id_bool = models.Course2Group.objects.get_or_create(
+                            CourseID=split[blocks], defaults={'GroupID': currID})
+                        course2id_model.GroupID = currID
+                        # override and save
+                        course2id_model.save()
 
             # print 2
             # prerequisite too complex. cs357: Prereqs are A or B; C. A and B are not cross listed (same as)
@@ -259,8 +263,6 @@ class Parser:
         try:
             table_struct = subject_infos[0].find_next_sibling("div", class_="portlet-container-flex")
             table = table_struct.find("tbody")
-            # print table
-            # sys.exit(0)
             # (table-item[^ ]*) ([^ ]+) (.*)
             # doesnt match on space?
             table_entry = table.find_all("tr", class_=re.compile(r"^table-item$"))
@@ -279,7 +281,6 @@ class Parser:
                 icon0 = w50[0]
                 crn = w50[1]
                 crn_text = crn.get_text(strip=True).encode('utf-8')
-                # print "CRN: " + crn_text
                 # print "CRN: " + crn.contents[1].contents[0].strip().encode('utf-8')
 
                 types = w80[0]
@@ -333,11 +334,20 @@ class Parser:
                     # print details.contents[3].contents[0].strip().encode('utf-8')
                 # deciphering ends here
 
-                section_obj = DataStruct.Section(crn_text, type_text, section_text, time_text, day_text, location_text,
-                                                 instructor_text, detail_text)
+                # section_obj = DataStruct.Section(crn_text, type_text, section_text, time_text, day_text, location_text,
+                #                                  instructor_text, detail_text)
                 section_model, section_bool = models.Slots.objects.get_or_create(
-                    CRN=crn_text, Type=type_text, Time=time_text, Section=section_text,
-                    Days=day_text, Location=location_text, Professor=instructor_text, CourseID=title_text)
+                    CRN=crn_text, defaults={'Type': type_text, 'Time': time_text, 'Section': section_text,
+                    'Days': day_text, 'Location': location_text, 'Professor': instructor_text, 'CourseID': title_text})
+                section_model.Type = type_text
+                section_model.Time = time_text
+                section_model.Section = section_text
+                section_model.Days = day_text
+                section_model.Location = location_text
+                section_model.Professor = instructor_text
+                section_model.CourseID = title_text
+                # override
+                section_model.save()
                 # print 3
                 # print "CRN: " + section_obj.crn
                 # print "Type: " + section_obj.type

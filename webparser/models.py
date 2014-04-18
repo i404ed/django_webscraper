@@ -6,12 +6,14 @@ class Course(models.Model):
     CourseID = models.CharField(max_length=15, primary_key=True)
     CourseName = models.CharField(max_length=50)
     Description = models.TextField()
+    SameAS = models.TextField()
+    PreReq = models.TextField()
 
     def __unicode__(self):
         return self.CourseID
 
-    def __str__(self):
-        return self.CourseID
+    # def __str__(self):
+    #     return self.CourseID
 
 # class Prerequisite(models.Model):
 #     GroupID1 = models.IntegerField()
@@ -25,8 +27,8 @@ class Course2Group(models.Model):
     def __unicode__(self):
         return self.CourseID
 
-    def __str__(self):
-        return self.CourseID
+    # def __str__(self):
+    #     return self.CourseID
 
 
 class Slots(models.Model):
@@ -40,9 +42,9 @@ class Slots(models.Model):
     CourseID = models.CharField(max_length=15)
 
     def __unicode__(self):
-        return self.CourseID
+        return self.CRN
 
-    def __str__(self):
-        return self.CourseID
+    # def __str__(self):
+    #     return self.CourseID
 
 
