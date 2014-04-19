@@ -1,7 +1,7 @@
 dont forget to ./manage.py syncdb and ./manage.py migrate
+sudo apt-get install python-dev libmysqlclient-dev FOR MYSQL
 
-
-local database
+local database for local testing
 user: ext
 email:
-password: wasd or qwertywasd
+password: wasd

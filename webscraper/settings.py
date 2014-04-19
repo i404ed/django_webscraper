@@ -78,13 +78,13 @@ WSGI_APPLICATION = 'webscraper.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'cs411horse_iCouSchelper',
-        # 'USER': 'cs411horse_123',
-        # 'PASSWORD': 'rbtGXxHW$TiR',
-        # 'HOST': 'engr-cpanel-mysql.engr.illinois.edu',  # Or an IP Address that your DB is hosted on
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'cs411horse_iCouSchelper',
+        'USER': 'cs411horse_123',
+        'PASSWORD': 'rbtGXxHW$TiR',
+        'HOST': 'engr-cpanel-mysql.engr.illinois.edu',  # Or an IP Address that your DB is hosted on
         # # 'PORT': '3306', only for localhost
 
     }

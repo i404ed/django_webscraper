@@ -72,6 +72,7 @@ class Parser:
         # f = open(new_file, 'w')
         # sys.stdout = f
 
+        print "Begin Parse"
         root = self.soup.find("div", class_="portlet-content-inner")
 
         # course title, course name, credit hrs, description, same as, prereqs
@@ -82,7 +83,7 @@ class Parser:
             # print title_text
             # print title[0].contents[0].strip().encode('utf-8')
 
-            # course name
+            print "Grabbing Course Information"
             try:
                 course = root.find("p", class_="cis-section-course")
                 course_text = course.get_text(strip=True).encode('utf-8')
@@ -180,8 +181,12 @@ class Parser:
                 find_sameas = "Same As Not Found"
             # print sameas_start, sameas_end, find_sameas
 
+            print "Grabbing Course Information: COMPLETED"
+
+            print "Processing Course Data"
             # gets all Course2Group tuples
             course2id_entries = models.Course2Group.objects.all()
+
             # finds current course's GroupID if course is in the list
             # might as well calculate the max too
             currID = 0
@@ -237,7 +242,7 @@ class Parser:
                         # override and save
                         course2id_model.save()
 
-            # print 2
+            print "Processing Course Data: COMPLETED"
             # prerequisite too complex. cs357: Prereqs are A or B; C. A and B are not cross listed (same as)
             # # get new copy of course2group
             # all_entries = models.Course2Group.objects.all()
@@ -261,6 +266,7 @@ class Parser:
         # the schedule
         # only crn is guaranteed to be single
         try:
+            print "Section Information"
             table_struct = subject_infos[0].find_next_sibling("div", class_="portlet-container-flex")
             table = table_struct.find("tbody")
             # (table-item[^ ]*) ([^ ]+) (.*)
@@ -334,6 +340,8 @@ class Parser:
                     # print details.contents[3].contents[0].strip().encode('utf-8')
                 # deciphering ends here
 
+                print "Grabbing Section Information: COMPLETED"
+                print "Processing Section Information Data"
                 # section_obj = DataStruct.Section(crn_text, type_text, section_text, time_text, day_text, location_text,
                 #                                  instructor_text, detail_text)
                 section_model, section_bool = models.Slots.objects.get_or_create(
@@ -364,7 +372,8 @@ class Parser:
                 # print "Location: " + location_text
                 # print "Instructor: " + instructor_text
                 # print detail_text
-
+                print "Processing Section Information Data: COMPLETED"
+            print "Section Information: COMPLETED"
         except:
             pass
             # print "Course Sections Not Found"
