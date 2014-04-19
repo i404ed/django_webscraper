@@ -1,5 +1,4 @@
-dont forget to ./manage.py syncdb and ./manage.py migrate
-sudo apt-get install python-dev libmysqlclient-dev FOR MYSQL
+go to the app's folder for a README
 
 local database for local testing
 user: ext
