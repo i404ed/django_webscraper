@@ -83,7 +83,7 @@ class Parser:
             # print title_text
             # print title[0].contents[0].strip().encode('utf-8')
 
-            print "Grabbing Course Information"
+            print "Grabbing Course Information:"
             try:
                 course = root.find("p", class_="cis-section-course")
                 course_text = course.get_text(strip=True).encode('utf-8')
@@ -183,7 +183,7 @@ class Parser:
 
             print "Grabbing Course Information: COMPLETED"
 
-            print "Processing Course Data"
+            print "Processing Course Data:"
             # gets all Course2Group tuples
             course2id_entries = models.Course2Group.objects.all()
 
@@ -266,7 +266,7 @@ class Parser:
         # the schedule
         # only crn is guaranteed to be single
         try:
-            print "Section Information"
+            print "Grabbing Section Information:"
             table_struct = subject_infos[0].find_next_sibling("div", class_="portlet-container-flex")
             table = table_struct.find("tbody")
             # (table-item[^ ]*) ([^ ]+) (.*)
@@ -340,7 +340,6 @@ class Parser:
                     # print details.contents[3].contents[0].strip().encode('utf-8')
                 # deciphering ends here
 
-                print "Grabbing Section Information: COMPLETED"
                 print "Processing Section Information Data"
                 # section_obj = DataStruct.Section(crn_text, type_text, section_text, time_text, day_text, location_text,
                 #                                  instructor_text, detail_text)
@@ -373,7 +372,7 @@ class Parser:
                 # print "Instructor: " + instructor_text
                 # print detail_text
                 print "Processing Section Information Data: COMPLETED"
-            print "Section Information: COMPLETED"
+            print "Grabbing Section Information: COMPLETED"
         except:
             pass
             # print "Course Sections Not Found"

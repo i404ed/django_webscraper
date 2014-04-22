@@ -5,15 +5,19 @@ as it supports searching html's class tags
 
 set up the environment and settle dependencies
 
-1. In main.py, provide the call to SoupParser.Parser()
-with the source (.html or URL), the type (0 for html, 1 for URL), and file prefix(for saved output)
+1. In main.py, provide the call to SoupParser.Parser() or DeptParser.Dept()
+SoupParser:
+provide a source (.html or URL), the type (0 for html, 1 for URL), and file prefix(for saved output)
+DeptParser:
+provide a source (.txt[not yet implemented] or URL), the type (0 for .txt, 1 for URL),
+and a file prefix(for saved output) [not yet implemented. does nothing currently]
+
 Start the virtualenv
 and run the command './manage.py runscript main' from the django app folder
 django will connect to the database using the information in settings.py
 and save course information to database
 
-----PREVIOUS REVISIONS----
-    the script will generate a pretty printed version of the html
-    with suffix _pretty to /pretty_html
-    it will also save output to a text file with suffix _parsed.txt to
-    /parsed_txt
+In SoupParser, there is a function (print_pretty) for pretty printing the html
+there is a option within the get_course function for printing contents to a file.
+just put the print statements back in, remove the status print statements, and allow switching std outputs
+
