@@ -7,10 +7,12 @@ set up the environment and settle dependencies
 
 1. In main.py, provide the call to SoupParser.Parser() or DeptParser.Dept()
 SoupParser:
-provide a source (.html or URL), the type (0 for html, 1 for URL), and file prefix(for saved output)
+provide a source (.html or URL), the type (0 for html, 1 for URL) of the course, and file prefix(for saved output)
+course urls look like this https://courses.illinois.edu/cisapp/dispatcher/schedule/2014/fall/ACE/100
 DeptParser:
-provide a source (.txt[not yet implemented] or URL), the type (0 for .txt, 1 for URL),
+provide a source (.txt[not yet implemented] or URL) of a list of courses (dept number), the type (0 for .txt, 1 for URL),
 and a file prefix(for saved output) [not yet implemented. does nothing currently]
+list of courses look like this https://courses.illinois.edu/cisapp/dispatcher/catalog/2014/spring/ACE
 
 Start the virtualenv
 and run the command './manage.py runscript main' from the django app folder
