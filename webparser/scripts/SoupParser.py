@@ -80,14 +80,16 @@ class Parser:
             # course title
             title = root.find("p", class_="cis-section-title")
             title_text = title.get_text(strip=True).encode('utf-8')
-            # print title_text
+            if len(title_text) == 0:
+                return
+            # print "Title: " + title_text
             # print title[0].contents[0].strip().encode('utf-8')
 
             print "Grabbing Course Information:"
             try:
                 course = root.find("p", class_="cis-section-course")
                 course_text = course.get_text(strip=True).encode('utf-8')
-                # print course_text
+                # print "Topic: " + course_text
                 # print course[0].contents[0].strip().encode('utf-8')
             except:
                 course_text = "Course Name Not Found"
@@ -100,7 +102,9 @@ class Parser:
                 credit_hr = descendants[0]
                 credit_hr_text = credit_hr.get_text(" ", strip=True).encode('utf-8')
                 # print credit_hr_text
+                # the "Credit:" part
                 # print credit_hr.contents[1].contents[0].strip().encode('utf-8')
+                # the credit amount
                 # print credit_hr.contents[2].strip().encode('utf-8')
                 description = descendants[1]
                 description_text = description.get_text(strip=True).encode('utf-8') + " "
@@ -164,6 +168,7 @@ class Parser:
                 description_text = "Description Not Found"
                 pass
 
+            # this part cant possible fail. all the try/excepts take care of everything
             prereq_start = description_text.find("Prerequisite: ")
             if prereq_start != -1:
                 prereq_end = description_text.find(".", prereq_start + 1)
@@ -192,11 +197,13 @@ class Parser:
             currID = 0
             maxID = 0
             for tuples in course2id_entries:
-                if tuples.CourseID == title_text:
-                    currID = tuples.GroupID
                 if tuples.GroupID > maxID:
                     maxID = tuples.GroupID
-            # course is not in the list.
+                if tuples.CourseID == title_text:
+                    currID = tuples.GroupID
+                    # should not have more than one occurance since CourseID is a key
+                    # continue running to let maxID do its thing even though it does nothing
+            # list is empty OR course is not in the list.
             # increase max, set cur to max for unique ID
             if currID == 0:
                 maxID += 1
@@ -355,7 +362,6 @@ class Parser:
                 section_model.CourseID = title_text
                 # override
                 section_model.save()
-                # print 3
                 # print "CRN: " + section_obj.crn
                 # print "Type: " + section_obj.type
                 # print "Section: " + section_obj.section

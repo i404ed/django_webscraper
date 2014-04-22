@@ -45,4 +45,3 @@ class Dept:
             course_text = course.get_text("/", strip=True).encode('utf-8')
             course_link = course_text[:find_nth(course_text, "/", 2)]
             SoupParser.Parser(BASE_URL + course_link, 1, "testURL")
-        pass
