@@ -72,7 +72,7 @@ class Parser:
         # f = open(new_file, 'w')
         # sys.stdout = f
 
-        print "Begin Parse"
+        print "Parsing:"
         root = self.soup.find("div", class_="portlet-content-inner")
 
         # course title, course name, credit hrs, description, same as, prereqs
@@ -383,6 +383,6 @@ class Parser:
             pass
             # print "Course Sections Not Found"
 
-        print "Done"
+        print "Parsing: COMPLETED"
         # sys.stdout = orig_stdout
         # f.close()

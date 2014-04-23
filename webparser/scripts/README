@@ -1,9 +1,10 @@
 dont forget to ./manage.py syncdb and ./manage.py migrate
-sudo apt-get install python-dev libmysqlclient-dev FOR MYSQL
+'sudo apt-get install python-dev libmysqlclient-dev' FOR MYSQL
 You'll need the python extension ,BeautifulSoup 4.1.2, or higher
 as it supports searching html's class tags
 
 set up the environment and settle dependencies
+check the requirements.txt
 
 1. In main.py, provide the call to SoupParser.Parser() or DeptParser.Dept()
 SoupParser:
