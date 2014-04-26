@@ -1,5 +1,9 @@
-dont forget to ./manage.py syncdb and ./manage.py migrate
+dont forget to ./manage.py syncdb and ./manage.py migrate if needed
+will need to do this if we change table structure
+
+ADDITIONAL DEPENDENCIES
 'sudo apt-get install python-dev libmysqlclient-dev MySQL-python' FOR MYSQL
+'sudo apt-get install libxml2-dev libxslt1-dev python-dev'
 You'll need the python extension ,BeautifulSoup 4.1.2, or higher
 as it supports searching html's class tags
 
