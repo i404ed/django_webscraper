@@ -1,5 +1,4 @@
 from webparser import models
-from webparser.scripts import DataStruct
 
 __author__ = 'hcao7'
 import re
@@ -33,8 +32,6 @@ class Parser:
             f.close()
         elif mode == 1:
             data = urllib2.urlopen(src).read()
-            # r = requests.get(src)
-            # data = r.text
             self.soup = BeautifulSoup(data, "lxml")
         else:
             print "mode has to be a .html file or a URL"
@@ -201,7 +198,7 @@ class Parser:
                     maxID = tuples.GroupID
                 if tuples.CourseID == title_text:
                     currID = tuples.GroupID
-                    # should not have more than one occurance since CourseID is a key
+                    # should not have more than one occurrence since CourseID is a key
                     # continue running to let maxID do its thing even though it does nothing
             # list is empty OR course is not in the list.
             # increase max, set cur to max for unique ID
@@ -348,8 +345,6 @@ class Parser:
                 # deciphering ends here
 
                 print "Processing Section Information Data"
-                # section_obj = DataStruct.Section(crn_text, type_text, section_text, time_text, day_text, location_text,
-                #                                  instructor_text, detail_text)
                 section_model, section_bool = models.Slots.objects.get_or_create(
                     CRN=crn_text, defaults={'Type': type_text, 'Time': time_text, 'Section': section_text,
                     'Days': day_text, 'Location': location_text, 'Professor': instructor_text, 'CourseID': title_text})
@@ -362,13 +357,6 @@ class Parser:
                 section_model.CourseID = title_text
                 # override
                 section_model.save()
-                # print "CRN: " + section_obj.crn
-                # print "Type: " + section_obj.type
-                # print "Section: " + section_obj.section
-                # print "Time: " + section_obj.time
-                # print "Day: " + section_obj.day
-                # print "Location: " + section_obj.location
-                # print "Instructor: " + section_obj.instructor
                 # print "CRN: " + crn_text
                 # print "Type: " + type_text
                 # print "Section: " + section_text
