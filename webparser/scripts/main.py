@@ -17,7 +17,7 @@ def run():
     # scrape = SoupParser.Parser(link, 1, "testURL")
 
 
-    dept_link = "https://courses.illinois.edu/cisapp/dispatcher/schedule/2014/fall/CSE"
+    dept_link = "https://courses.illinois.edu/cisapp/dispatcher/schedule/2014/fall/ARTD"
     DeptParser.Dept(dept_link, 1, "a")
 
 if __name__ == "__main__":
