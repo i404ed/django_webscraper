@@ -34,7 +34,7 @@ class Course2Group(models.Model):
 class Slots(models.Model):
     CRN = models.IntegerField(primary_key=True)
     Type = models.CharField(max_length=50)
-    Time = models.CharField(max_length=30)
+    Time = models.CharField(max_length=70)
     Section = models.CharField(max_length=30)
     Days = models.CharField(max_length=30)
     Location = models.CharField(max_length=150)
