@@ -345,9 +345,12 @@ class Parser:
                 # deciphering ends here
 
                 print "Processing Section Information Data"
-                section_model, section_bool = models.Slots.objects.get_or_create(
-                    CRN=crn_text, defaults={'Type': type_text, 'Time': time_text, 'Section': section_text,
-                    'Days': day_text, 'Location': location_text, 'Professor': instructor_text, 'CourseID': title_text})
+                try:
+                    section_model, section_bool = models.Slots.objects.get_or_create(
+                        CRN=crn_text, defaults={'Type': type_text, 'Time': time_text, 'Section': section_text,
+                        'Days': day_text, 'Location': location_text, 'Professor': instructor_text, 'CourseID': title_text})
+                except:
+                    print "failed to get"
                 section_model.Type = type_text
                 section_model.Time = time_text
                 section_model.Section = section_text
@@ -356,7 +359,17 @@ class Parser:
                 section_model.Professor = instructor_text
                 section_model.CourseID = title_text
                 # override
-                section_model.save()
+                try:
+                    section_model.save()
+                except:
+                    print "CRN: " + crn_text
+                    print "Type: " + type_text
+                    print "Section: " + section_text
+                    print "Time: " + time_text
+                    print "Day: " + day_text
+                    print "Location: " + location_text
+                    print "Instructor: " + instructor_text
+                    print "failed to save"
                 # print "CRN: " + crn_text
                 # print "Type: " + type_text
                 # print "Section: " + section_text

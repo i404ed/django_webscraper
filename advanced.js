@@ -1,6 +1,10 @@
 /*
 CorseList is the list of sections available for 1 CourseID
 */
+/*
+needs list of slots/courses
+[course1,course2]
+*/
 function permutate(CourseList) {
 	// finds out different types and split into bins
 	var type = {}
@@ -9,7 +13,7 @@ function permutate(CourseList) {
 		var Course = CourseList[i]
 		if (!(Course.type in type))
 		{
-	    list[Course.type] = []
+	    type[Course.type] = []
 		}
 		type[Course.type].push(Course)
 	}
@@ -52,7 +56,9 @@ function genPermutation(List1, List2){
 	return permutations
 }
 
+
 /*
+[event1, event2...], event
 List is a list of events known to not have conflicts
 elem is a event to check if we have a time conflict or not
 */
@@ -63,7 +69,7 @@ function timeConflict(List, elem){
 	}
 	if (elem.days == "n.a." || elem.time == "ARRANGED") 
 	{
-		return true;
+		return true
 	}
 	for (var i = 0; i < List.length; ++i)
 	{
@@ -73,12 +79,9 @@ function timeConflict(List, elem){
 		}
 		else
 		{
-			var elemDays = elem.days.split("")
-			var currDays = List[i].days.split("")
-			if (isIn(elemDays, currDays)) 
+			if (isSameDays(elem.days, List[i].days))
 			{
-				
-				if () 
+				if (isSameTime(elem.time, List[i].time))
 				{
 
 				}
@@ -90,17 +93,68 @@ function timeConflict(List, elem){
 }
 
 /*
-needle, the list of days to check
-haystack, the list of days to check against
+Needs string format
+"MTWRF"
+needle, the days to check
+haystack, the days to check against
 if any of needle is in haystack, returns true
 */
-function isIn(needle, haystack){
+function isSameDays(needleStr, haystackStr){
+    var needle = needleStr.split("")
+    var haystack = haystackStr.split("")
 	for (var i = 0; i < needle.length; ++i)
 	{
 		if (haystack.indexOf(needle[i]) > -1)
 		{
-			return true;
+			return true
 		}
 	}
-	return false;
+	return false
+}
+/*
+needs times as strings
+"02:00 PM - 03:50 PM"
+[1]:[2] [3] - [4]:[5] [6]
+/^ *(\d+):(\d+) *(AM|PM) *- *(\d+):(\d+) *(AM|PM)/i
+*/
+function isSameTime(needleStr, haystackStr){
+    //match using regex
+    var needleRegex = needleStr.match(/^ *(\d+):(\d+) *(AM|PM) *- *(\d+):(\d+) *(AM|PM)/i)
+    var haystackRegex = haystackStr.match(/^ *(\d+):(\d+) *(AM|PM) *- *(\d+):(\d+) *(AM|PM)/i)
+    //+12 if pm
+    if (needleRegex[3].match(/PM/i))
+    {
+        needleRegex[1] = parseInt(needleRegex[1]) + 12
+    }
+    if (needleRegex[6].match(/PM/i))
+    {
+        needleRegex[4] = parseInt(needleRegex[4]) + 12
+    }
+    //make date time obj and set
+    var needleStartTime = new Date()
+    var needleEndTime = new Date()
+    needleStartTime.setHours(needleRegex[1] , needleRegex[2], 00, 00)
+    needleEndTime.setHours(needleRegex[4] , needleRegex[5], 00, 00)
+    //+12 if pm
+    if (haystackRegex[3].match(/PM/i))
+    {
+        haystackRegex[1] = parseInt(haystackRegex[1]) + 12
+    }
+    if (haystackRegex[6].match(/PM/i))
+    {
+        haystackRegex[4] = parseInt(haystackRegex[4]) + 12
+    }
+    //make date time obj and set
+    var haystackStartTime = new Date()
+    var haystackEndTime = new Date()
+    haystackStartTime.setHours(haystackRegex[1] , haystackRegex[2], 00, 00)
+    haystackEndTime.setHours(haystackRegex[4] , haystackRegex[5], 00, 00)
+
+    if (haystackStartTime < needleStartTime && needleStartTime < needleEndTime){
+        return true;
+    }
+    else {
+        return haystackStartTime < needleEndTime && needleEndTime < needleEndTime;
+    }
+//    haystackStartTime < needleStartTime < needleEndTime < haystackEndTime
 }
