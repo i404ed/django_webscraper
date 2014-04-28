@@ -1,122 +1,144 @@
-/*
-CorseList is the list of sections available for 1 CourseID
-*/
-/*
-needs list of slots/courses
-[course1,course2]
-*/
+function Course(crn, time, days, type) {
+    this.crn = crn
+    this.time = time
+    this.days = days
+    this.type = type
+}
+
+var a = new Course(1, "10:00 AM - 10:50 AM", "MWF", "Lec")
+var b = new Course(2, "01:00 PM - 01:50 PM\n02:00 PM - 02:50 PM", "M\nM", "Discussion/Recitation\nLaboratory")
+var c = new Course(3, "02:00 PM - 02:50 PM\n03:00 PM - 03:50 PM", "M\nM", "Discussion/Recitation\nLaboratory")
+var courses = []
+courses.push(a)
+courses.push(b)
+courses.push(c)
+permutate(courses)
+
 function permutate(CourseList) {
-	// finds out different types and split into bins
-	var type = {}
-	for (var i=0; i<CourseList.length; i++)
-	{ 
-		var Course = CourseList[i]
-		if (!(Course.type in type))
-		{
-	    type[Course.type] = []
-		}
-		type[Course.type].push(Course)
-	}
-	// generates permutations for each type
-	var results = [[]]
-	for (var i = 0; i < type.length; ++i)
-	{
-		results = genPermutation(results, Object.keys(type)[i])
-	}
-	return results
-	// check and see if these permuataions intersect with schedule
+    // finds out different types and split into bins
+    var type = {}
+    for (var i=0; i<CourseList.length; i++)
+    {
+        var Course = CourseList[i]
+        if (!(Course.type in type))
+        {
+            type[Course.type] = []
+        }
+        type[Course.type].push(Course)
+    }
+    var results = type[Object.keys(type)[0]]
+    for (var j = 1; j < Object.keys(type).length; ++j)
+    {
+        //reset list to empty
+        var tempSoln = []
+        for(var l = 0; l < type[Object.keys(type)[j]].length; ++l)
+        {
+            tempSoln.push(genPermutation(results, [type[Object.keys(type)[j]][l] ]))
+        }
+        // swap out list with permutated list
+        results = tempSoln
+    }
+    return results
+    // check and see if these permuataions intersect with schedule
 }
 
 /*
-List1 is a permutation. it is list of lists of events
-[[Lecture1, Discussion1], [Lecture1, Discussion2]]
-List2 is a list of things to add to the permutations
-[Lab1, Lab2]
-*/
-function genPermutation(List1, List2){
-	var permutations = []
-	// if (List1.length == 0) 
-	// {
-	// 	return [List2]
-	// }
-	if (List2.length == 0) 
-	{
-		return List1
-	}
-	for (var i = 0; i < List1.length; ++i)
-	{
-		for (var j = 0; j < List2.length; ++j)
-		{
-			if (timeConflict(List1[i], List2[j])) 
-			{
-				permutations.push(List1[i].push(List2[j]))
-			}
-		}
-	}
-	return permutations
+ soln is a list of permutations to try to add an elem to
+ elem is an element(s) to add
+ */
+function genPermutation(soln, elem){
+    var permutations = []
+    if (soln.length == 0)
+    {
+        return elem
+    }
+    if (elem.length == 0)
+    {
+        return soln
+    }
+    for (var i = 0; i < soln.length; ++i)
+    {
+        for (var j = 0; j < elem.length; ++j)
+        {
+            if (!timeConflict([soln[i]], elem[j]))
+            {
+                console.log(soln[i])
+                console.log(elem[j])
+
+                permutations.push([soln[i]].push(elem[j]))
+                console.log(permutations)
+            }
+        }
+    }
+    return permutations
 }
 
 
 /*
-[event1, event2...], event
-List is a list of events known to not have conflicts
-elem is a event to check if we have a time conflict or not
-*/
+ [event1, event2...], event
+ List is a list of events known to not have conflicts
+ elem is a event to check if we have a time conflict or not
+ one crn might have more than 1 slot (block classes/schedules)
+ */
 function timeConflict(List, elem){
-	if (List.length == 0) 
-	{
-		return true
-	}
-	if (elem.days == "n.a." || elem.time == "ARRANGED") 
-	{
-		return true
-	}
-	for (var i = 0; i < List.length; ++i)
-	{
-		if (List[i].days == "n.a." || List[i].time == "ARRANGED") 
-		{
-			// do nothing, check next event
-		}
-		else
-		{
-			if (isSameDays(elem.days, List[i].days))
-			{
-				if (isSameTime(elem.time, List[i].time))
-				{
-
-				}
-			}
-		}
-		// List[i] = event
-		// elem = event
-	}
+    if (List.length == 0)
+    {
+        return false
+    }
+    var elemDays = elem.days.split("\n")
+    var elemTime = elem.time.split("\n")
+    for (var i = 0; i < elemDays.length; ++i)
+    {
+        if (elemDays[i] != "n.a." && elemTime[i] != "ARRANGED")
+        {
+            for (var j = 0; j < List.length; ++j)
+            {
+                var listDays = List[j].days.split("\n")
+                var listTime = List[j].time.split("\n")
+                for (var k = 0; k < listDays.length; ++k)
+                {
+                    if (listDays[k] != "n.a." && listTime[k] != "ARRANGED")
+                    {
+                        if (isSameDays(elemDays[i], listDays[k]))
+                        {
+                            if (isSameTime(elemTime[i], listTime[k]))
+                            {
+                                return true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return false
 }
 
 /*
-Needs string format
-"MTWRF"
-needle, the days to check
-haystack, the days to check against
-if any of needle is in haystack, returns true
-*/
+ Needs string format
+ "MTWRF"
+ needle, the days to check
+ haystack, the days to check against
+ if any of needle is in haystack, returns true
+ */
 function isSameDays(needleStr, haystackStr){
     var needle = needleStr.split("")
     var haystack = haystackStr.split("")
-	for (var i = 0; i < needle.length; ++i)
-	{
-		if (haystack.indexOf(needle[i]) > -1)
-		{
-			return true
-		}
-	}
-	return false
+    for (var i = 0; i < needle.length; ++i)
+    {
+        if (haystack.indexOf(needle[i]) > -1)
+        {
+            return true
+        }
+    }
+    return false
 }
 /*
-needs times as strings
-"02:00 PM - 03:50 PM"
-[1]:[2] [3] - [4]:[5] [6]
-/^ *(\d+):(\d+) *(AM|PM) *- *(\d+):(\d+) *(AM|PM)/i
-*/
+ needs times as strings
+ "02:00 PM - 03:50 PM"
+ [1]:[2] [3] - [4]:[5] [6]
+ /^ *(\d+):(\d+) *(AM|PM) *- *(\d+):(\d+) *(AM|PM)/i
+ */
 function isSameTime(needleStr, haystackStr){
     //match using regex
     var needleRegex = needleStr.match(/^ *(\d+):(\d+) *(AM|PM) *- *(\d+):(\d+) *(AM|PM)/i)
@@ -150,11 +172,11 @@ function isSameTime(needleStr, haystackStr){
     haystackStartTime.setHours(haystackRegex[1] , haystackRegex[2], 00, 00)
     haystackEndTime.setHours(haystackRegex[4] , haystackRegex[5], 00, 00)
 
-    if (haystackStartTime < needleStartTime && needleStartTime < needleEndTime){
+    if (haystackStartTime < needleStartTime && needleStartTime < haystackEndTime){
         return true;
     }
     else {
-        return haystackStartTime < needleEndTime && needleEndTime < needleEndTime;
+        return haystackStartTime < needleEndTime && needleEndTime < haystackEndTime;
     }
 //    haystackStartTime < needleStartTime < needleEndTime < haystackEndTime
 }
